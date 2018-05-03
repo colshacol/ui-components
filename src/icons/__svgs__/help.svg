@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/help</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="icons/help" stroke="#726D82" stroke-width="2">
+            <g id="life-buoy" transform="translate(2.000000, 2.000000)">
+                <circle id="Oval" cx="10" cy="10" r="10"></circle>
+                <circle id="Oval" cx="10" cy="10" r="4"></circle>
+                <path d="M2.93,2.93 L7.17,7.17" id="Shape"></path>
+                <path d="M12.83,12.83 L17.07,17.07" id="Shape"></path>
+                <path d="M12.83,7.17 L17.07,2.93" id="Shape"></path>
+                <path d="M12.83,7.17 L16.36,3.64" id="Shape"></path>
+                <path d="M2.93,17.07 L7.17,12.83" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

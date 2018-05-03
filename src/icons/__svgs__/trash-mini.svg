@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/trash-mini</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons/trash-mini" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="trash" transform="translate(6.000000, 4.333333)" stroke="#726D82" stroke-width="2">
+            <polyline id="Shape" points="0 3.66666667 1.33333333 3.66666667 12 3.66666667"></polyline>
+            <path d="M11,4 L11,13.1666667 C11,13.9260582 10.2889782,14.6666667 9.5,14.6666667 L2.5,14.6666667 C1.71102179,14.6666667 1,13.9260582 1,13.1666667 L1,4 M3,3.66666667 L3,2.16666667 C3,1.33823954 3.67157288,0.666666667 4.5,0.666666667 L7.5,0.666666667 C8.32842712,0.666666667 9,1.33823954 9,2.16666667 L9,3.66666667" id="Shape"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>bucket</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="bucket" stroke="#726D82" stroke-width="2">
+            <g transform="translate(0.000000, 2.000000)">
+                <path d="M19.5,13 C17.8333333,14.3333333 17,15.6666667 17,17 C17,19 18,20 19.5,20 C21,20 22,19 22,17 C22,15.6666667 21.1666667,14.3333333 19.5,13 Z" id="Path-11"></path>
+                <path d="M2.79669914,2.92157288 L4.91801948,2.93198052 L14.1104076,2.93198052 L16.231728,2.92157288 C15.2886391,3.6365025 14.8172346,4.10790702 14.8175144,4.33578644 C14.8195474,5.99121229 14.8195474,8.34823489 14.8175144,11.4068542 C14.8175144,13.6159932 13.0266534,15.4068542 10.8175144,15.4068542 L6.81751442,15.4068542 C4.60837542,15.4068542 2.81751442,13.6159932 2.81751442,11.4068542 L2.79669914,2.92157288 Z" id="Path-10" transform="translate(9.514214, 9.164214) rotate(-315.000000) translate(-9.514214, -9.164214) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

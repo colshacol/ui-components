@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>fill-color</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="fill-color" stroke="#726D82" stroke-width="2">
+            <g transform="translate(5.000000, 3.000000)">
+                <path d="M7,18 C2.866,18 0,15.629 0,12 C0,7.107 3.814,0 7,0 C10.186,0 14,7.107 14,12 C14,15.629 11.134,18 7,18 Z" id="Shape"></path>
+                <path d="M10,9 C10,12 9,14 6,14" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>
