@@ -5,6 +5,7 @@ import { SubtleButton } from "..";
 import IconMoreHorizontal from "../../icons/IconMoreHorizontal";
 
 storiesOf(SubtleButton.name, module)
+  .add("Empty", () => <SubtleButton onClick={action("click")} />)
   .add("Text", () => <SubtleButton onClick={action("click")}>Text</SubtleButton>)
   .add("Icon", () => (
     <SubtleButton onClick={action("click")}>
