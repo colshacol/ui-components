@@ -1,6 +1,6 @@
 {
   "name": "@heydovetail/ui-components",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "React integration for TypeStyle",
   "main": "./lib.commonjs/index.js",
   "module": "./lib.es2015/index.js",
