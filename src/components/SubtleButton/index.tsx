@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
-import { BOX_SHADOW_FOCUS, buttonBaseStyles } from "../styles";
+import { BOX_SHADOW_FOCUS, buttonBaseStyles } from "../../styles";
 
 export interface Props {
   children?: React.ReactNode;

@@ -2,7 +2,7 @@ import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { SubtleButton } from "..";
-import IconMoreHorizontal from "../../icons/IconMoreHorizontal";
+import { IconMoreHorizontal } from "../../..";
 
 storiesOf(SubtleButton.name, module)
   .add("Empty", () => <SubtleButton onClick={action("click")} />)

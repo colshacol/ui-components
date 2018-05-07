@@ -1,6 +1,3 @@
-// @ts-ignore
-import * as React from "react";
-
 export const COLORS = {
   indigo: "#24124d",
   i80: "#4f4270",
