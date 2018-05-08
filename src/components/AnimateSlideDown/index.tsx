@@ -9,16 +9,13 @@ type STATE = "unmounted" | "exited" | "entering" | "entered" | "exiting";
 
 export const AnimateSlideDown = ({ children }: { children?: React.ReactElement<{ className?: string }> }) => (
   <CSSTransition appear={true} timeout={32} in={true} classNames={{}}>
-    {(state: STATE) => {
-      console.log(state);
-      return (
-        <WithClassName
-          className={classes(state === "entering" ? enteringClass : null, state === "entered" ? enteredClass : null)}
-        >
-          {children}
-        </WithClassName>
-      );
-    }}
+    {(state: STATE) => (
+      <WithClassName
+        className={classes(state === "entering" ? enteringClass : null, state === "entered" ? enteredClass : null)}
+      >
+        {children}
+      </WithClassName>
+    )}
   </CSSTransition>
 );
 
