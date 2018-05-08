@@ -119,18 +119,3 @@ export const Z_INDEX_LOWEST = 0;
 export const BREAKPOINT_PHONE = 440;
 export const BREAKPOINT_PHABLET = 512;
 export const BREAKPOINT_TABLET = 768;
-
-export const buttonBaseStyles = {
-  borderRadius: BORDER_RADIUS,
-  border: "none",
-  cursor: "pointer",
-  display: "inline-block" as "inline-block",
-  fontSize: "14px",
-  fontWeight: 500 as 500,
-  margin: 0,
-  outline: "none",
-  overflow: "hidden" as "hidden",
-  textOverflow: "ellipsis",
-  verticalAlign: "middle",
-  whiteSpace: "nowrap" as "nowrap"
-};

@@ -1,12 +1,12 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
 import {
+  BORDER_RADIUS,
   BOX_SHADOW_BORDER,
   BOX_SHADOW_BORDER_DARKER,
   BOX_SHADOW_FOCUS,
   BOX_SHADOW_SITTING,
-  COLORS,
-  buttonBaseStyles
+  COLORS
 } from "../../styles";
 
 export interface Props {
@@ -103,3 +103,18 @@ export const DefaultButtonStyle = styled(
     }
   })
 );
+
+export const buttonBaseStyles = {
+  borderRadius: BORDER_RADIUS,
+  border: "none",
+  cursor: "pointer",
+  display: "inline-block" as "inline-block",
+  fontSize: "14px",
+  fontWeight: 500 as 500,
+  margin: 0,
+  outline: "none",
+  overflow: "hidden" as "hidden",
+  textOverflow: "ellipsis",
+  verticalAlign: "middle",
+  whiteSpace: "nowrap" as "nowrap"
+};

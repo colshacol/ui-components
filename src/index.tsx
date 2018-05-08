@@ -1,6 +1,7 @@
 // Components
 export { AnimateSlideDown } from "./components/AnimateSlideDown";
 export { Button } from "./components/Button";
+export { ButtonLink } from "./components/ButtonLink";
 export { Dropdown } from "./components/Dropdown";
 export { DropdownItem } from "./components/DropdownItem";
 export { DropdownSeparator } from "./components/DropdownSeparator";
@@ -15,6 +16,7 @@ export { OnEsc } from "./components/OnEsc";
 export { Portal } from "./components/Portal";
 export { SmallText } from "./components/SmallText";
 export { SubtleButton } from "./components/SubtleButton";
+export { SubtleButtonLink } from "./components/SubtleButtonLink";
 export { ThemeGlobalStyles } from "./components/ThemeGlobalStyles";
 export { WithClassName } from "./components/WithClassName";
 

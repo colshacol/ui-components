@@ -1,5 +1,6 @@
 import { StoryDecorator } from "@storybook/react";
 import * as React from "react";
+import { MemoryRouter } from "react-router-dom";
 import { cssRule } from "typestyle";
 import { ThemeGlobalStyles } from "../src/components/ThemeGlobalStyles";
 
@@ -19,6 +20,6 @@ export const decorator: StoryDecorator = story => (
   <>
     <ThemeGlobalStyles />
     <StorybookStyles />
-    {story()}
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   </>
 );

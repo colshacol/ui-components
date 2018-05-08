@@ -1,6 +1,7 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
-import { BOX_SHADOW_FOCUS, buttonBaseStyles } from "../../styles";
+import { BOX_SHADOW_FOCUS } from "../../styles";
+import { buttonBaseStyles } from "../Button";
 
 export interface Props {
   children?: React.ReactNode;
@@ -24,24 +25,27 @@ export class SubtleButton extends React.PureComponent<Props> {
   }
 }
 
-const SubtleButtonStyle = styled("button", ({ fullWidth = false, height = 32 }: { fullWidth?: boolean; height?: number }) => ({
-  backgroundColor: "transparent",
-  color: "inherit",
-  height: `${height}px`,
-  lineHeight: `${height}px`,
-  maxWidth: "100%",
-  padding: "0 8px",
-  width: fullWidth ? "100%" : "auto",
+export const SubtleButtonStyle = styled(
+  "button",
+  ({ fullWidth = false, height = 32 }: { fullWidth?: boolean; height?: number }) => ({
+    backgroundColor: "transparent",
+    color: "inherit",
+    height: `${height}px`,
+    lineHeight: `${height}px`,
+    maxWidth: "100%",
+    padding: "0 8px",
+    width: fullWidth ? "100%" : "auto",
 
-  $nest: {
-    "&:hover": {
-      backgroundColor: "rgba(36, 18, 77, 0.04)"
-    },
-    "&:active": {
-      backgroundColor: "rgba(36, 18, 77, 0.08)"
-    },
-    "&:focus": {
-      boxShadow: BOX_SHADOW_FOCUS
+    $nest: {
+      "&:hover": {
+        backgroundColor: "rgba(36, 18, 77, 0.04)"
+      },
+      "&:active": {
+        backgroundColor: "rgba(36, 18, 77, 0.08)"
+      },
+      "&:focus": {
+        boxShadow: BOX_SHADOW_FOCUS
+      }
     }
-  }
-}));
+  })
+);
