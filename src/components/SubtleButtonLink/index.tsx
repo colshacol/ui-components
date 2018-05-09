@@ -15,10 +15,10 @@ export interface Props {
 
 export class SubtleButtonLink extends React.PureComponent<Props> {
   public render() {
-    const { children, color, fullWidth, height, id, location } = this.props;
+    const { children, color = "inherit", fullWidth, height, id, location } = this.props;
 
     return (
-      <LocationLink location={location} tabIndex={-1}>
+      <LocationLink location={location} tabIndex={-1} style={{ color: color }}>
         <SubtleButtonStyle styled={{ fullWidth, height }} id={id} style={{ ...buttonBaseStyles, color: color }} type="button">
           {children}
         </SubtleButtonStyle>
