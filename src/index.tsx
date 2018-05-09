@@ -14,6 +14,7 @@ export { LocationLink } from "./components/LocationLink";
 export { MeatballMenu } from "./components/MeatballMenu";
 export { OnEsc } from "./components/OnEsc";
 export { Portal } from "./components/Portal";
+export { RxSubscribe } from "./components/RxSubscribe";
 export { SmallText } from "./components/SmallText";
 export { SubtleButton } from "./components/SubtleButton";
 export { SubtleButtonLink } from "./components/SubtleButtonLink";
