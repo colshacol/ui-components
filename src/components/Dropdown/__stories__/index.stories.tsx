@@ -2,7 +2,7 @@ import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { Dropdown } from "../";
-import { DropdownItem, DropdownSeparator, IconNote, IconStar, IconTag } from "../../..";
+import { DropdownItem, DropdownSeparator } from "../../..";
 
 storiesOf(Dropdown.name, module)
   .add("with items", () => (
@@ -24,15 +24,6 @@ storiesOf(Dropdown.name, module)
         <DropdownItem action={action("onClick")} value="View history" />
         <DropdownSeparator />
         <DropdownItem action={action("onClick")} value="Delete" />
-      </Dropdown>
-    </div>
-  ))
-  .add("with icons", () => (
-    <div style={{ display: "flex" }}>
-      <Dropdown>
-        <DropdownItem action={action("onClick")} icon={<IconNote />} value="Note" />
-        <DropdownItem action={action("onClick")} icon={<IconStar />} value="Insight" />
-        <DropdownItem action={action("onClick")} icon={<IconTag />} value="Tag" />
       </Dropdown>
     </div>
   ))

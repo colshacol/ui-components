@@ -21,7 +21,26 @@ export { SubtleButtonLink } from "./components/SubtleButtonLink";
 export { ThemeGlobalStyles } from "./components/ThemeGlobalStyles";
 export { WithClassName } from "./components/WithClassName";
 
-export { BREAKPOINT_PHONE, BREAKPOINT_PHABLET, BREAKPOINT_TABLET, COLORS } from "./styles";
+// Constants
+export {
+  BORDER_RADIUS,
+  BOX_SHADOW_BORDER_DARKER,
+  BOX_SHADOW_BORDER_LIGHTER,
+  BOX_SHADOW_BORDER,
+  BOX_SHADOW_FOCUS,
+  BOX_SHADOW_LIFTED,
+  BOX_SHADOW_SITTING,
+  BOX_SHADOW_STICKY,
+  BREAKPOINT_PHABLET,
+  BREAKPOINT_PHONE,
+  BREAKPOINT_TABLET,
+  COLORS,
+  Z_INDEX_HIGH,
+  Z_INDEX_HIGHEST,
+  Z_INDEX_LOW,
+  Z_INDEX_LOWEST,
+  Z_INDEX_MID
+} from "./styles";
 
 // Icons
 export { default as IconActivity } from "./icons/IconActivity";
