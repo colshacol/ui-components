@@ -7,6 +7,8 @@ export const COLORS = {
   i08: "#eeecf1",
   i04: "#f6f6f8",
   i02: "#fbfafc",
+  // The darkpurple (dp) shades are all deprecated
+  // Pleaes use indigo instead!
   darkpurple: "#140b2f",
   dp80: "#433c59",
   dp60: "#726d82",
