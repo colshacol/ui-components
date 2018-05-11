@@ -1,6 +1,6 @@
 {
   "name": "@heydovetail/ui-components",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "React integration for TypeStyle",
   "main": "./lib.commonjs/index.js",
   "module": "./lib.es2015/index.js",
@@ -66,14 +66,23 @@
       },
       "NODE_ENV": "test"
     },
-    "moduleFileExtensions": ["js", "ts", "tsx", "json"],
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx",
+      "json"
+    ],
     "testRegex": "src/(.+/)*__specs__/[^/]+\\.spec\\.tsx?$",
     "transform": {
       "\\.tsx?$": "ts-jest"
     }
   },
   "lint-staged": {
-    "*.tsx?": ["prettier --write", "tslint -p tsconfig.json", "git add"]
+    "*.tsx?": [
+      "prettier --write",
+      "tslint -p tsconfig.json",
+      "git add"
+    ]
   },
   "prettier": {
     "printWidth": 128
