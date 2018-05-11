@@ -20,7 +20,7 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@heydovetail/editorconfig/-/editorconfig-2.0.0.tgz#341fbc7edbc735534f2176159b00d9e8534c6489"
 
-"@heydovetail/svg-to-react@^1.1.0":
+"@heydovetail/svg-to-react@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@heydovetail/svg-to-react/-/svg-to-react-1.1.1.tgz#ac7f3d72d8b62d9554a7c5e17b722ba5743cf318"
   dependencies:

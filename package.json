@@ -51,7 +51,7 @@
     "react-dom": "^16.3.2"
   },
   "dependencies": {
-    "@heydovetail/svg-to-react": "^1.1.0",
+    "@heydovetail/svg-to-react": "^1.1.1",
     "@types/react-router-dom": "^4.2.6",
     "react-router-dom": "^4.2.2",
     "react-transition-group": "^2.3.1",
@@ -66,23 +66,14 @@
       },
       "NODE_ENV": "test"
     },
-    "moduleFileExtensions": [
-      "js",
-      "ts",
-      "tsx",
-      "json"
-    ],
+    "moduleFileExtensions": ["js", "ts", "tsx", "json"],
     "testRegex": "src/(.+/)*__specs__/[^/]+\\.spec\\.tsx?$",
     "transform": {
       "\\.tsx?$": "ts-jest"
     }
   },
   "lint-staged": {
-    "*.tsx?": [
-      "prettier --write",
-      "tslint -p tsconfig.json",
-      "git add"
-    ]
+    "*.tsx?": ["prettier --write", "tslint -p tsconfig.json", "git add"]
   },
   "prettier": {
     "printWidth": 128
