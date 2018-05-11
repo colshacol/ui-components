@@ -9,9 +9,8 @@ import * as React from "react";
 export default createSvg((width = 24, height = 24, color): React.ReactElement<Props> => (
   <svg width={width} height={height} viewBox="0 0 24 24">
     <g stroke={color} strokeWidth={2} fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M16 16l-4-4-4 4M12 12v9" />
-      <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
-      <path d="M16 16l-4-4-4 4" />
+      <path d="M22 11.086v.92a10 10 0 1 1-5.93-9.14" />
+      <path d="M22 4L12 14l-3-2.997" />
     </g>
   </svg>
 ));

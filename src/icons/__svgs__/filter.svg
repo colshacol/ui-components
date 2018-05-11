@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="icons/filter" stroke-width="2" stroke="#726D82">
+        <g id="icons/filter" stroke-width="2" stroke="#000000">
             <g id="filter" transform="translate(2.000000, 3.000000)">
                 <polygon id="Shape" points="20 0 0 0 8 9.46 8 16 12 18 12 9.46"></polygon>
             </g>

@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="icons/pin" stroke="#726D82" stroke-width="2">
+        <g id="icons/pin" stroke="#000000" stroke-width="2">
             <g id="pin" transform="translate(3.000000, 2.000000)">
                 <polygon id="Path-8" points="1 8 5 7 12 1 18 7 12 14 11 18"></polygon>
                 <path d="M0,19 L6,13" id="Path-4"></path>

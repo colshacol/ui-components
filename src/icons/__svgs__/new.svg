@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="icons/new" stroke="#726D82" stroke-width="2">
+        <g id="icons/new" stroke="#000000" stroke-width="2">
             <g id="new" transform="translate(4.000000, 4.000000)">
                 <path d="M0,12.0000001 C2,12.0000001 3,9.99999997 3,8.99999996 L3,5.59999998 C3,1.99999993 5,8.34465024e-08 8,0 C11,-8.34465026e-08 13,1.99999993 13,5.59999998 L13,8.99999996 C13,9.99999997 14,12.0000001 16,12.0000001 L0,12.0000001 Z M10,15 C9.5,15.5 9,16 8,16 C7,16 6.5,15.5 6,15 L10,15 Z" id="Combined-Shape"></path>
             </g>

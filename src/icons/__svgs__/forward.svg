@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="icons/forward" stroke="#726D82" stroke-width="2">
+        <g id="icons/forward" stroke="#000000" stroke-width="2">
             <g id="arrow-right" transform="translate(4.000000, 6.000000)">
                 <path d="M0,6 L16,6" id="Shape"></path>
                 <polyline id="Shape" points="10 0 16 6 10 12"></polyline>
