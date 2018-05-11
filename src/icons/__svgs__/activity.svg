@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="icons/activity" stroke-width="2" stroke="#726D82">
+        <g id="icons/activity" stroke-width="2" stroke="#000000">
             <g id="activity" transform="translate(2.000000, 3.000000)">
                 <polyline id="Shape" points="20 9 16 9 13 18 7 0 4 9 0 9"></polyline>
             </g>

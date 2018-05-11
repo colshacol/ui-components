@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="icons/help" stroke="#726D82" stroke-width="2">
+        <g id="icons/help" stroke="#000000" stroke-width="2">
             <g id="life-buoy" transform="translate(2.000000, 2.000000)">
                 <circle id="Oval" cx="10" cy="10" r="10"></circle>
                 <circle id="Oval" cx="10" cy="10" r="4"></circle>

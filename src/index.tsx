@@ -13,11 +13,14 @@ export { Link } from "./components/Link";
 export { LocationLink } from "./components/LocationLink";
 export { MeatballMenu } from "./components/MeatballMenu";
 export { OnEsc } from "./components/OnEsc";
+export { OptionalErrorOverlay } from "./components/OptionalErrorOverlay";
 export { Portal } from "./components/Portal";
 export { RxSubscribe } from "./components/RxSubscribe";
 export { SmallText } from "./components/SmallText";
+export { SmartTextInput } from "./components/SmartTextInput";
 export { SubtleButton } from "./components/SubtleButton";
 export { SubtleButtonLink } from "./components/SubtleButtonLink";
+export { TextInput } from "./components/TextInput";
 export { ThemeGlobalStyles } from "./components/ThemeGlobalStyles";
 export { WithClassName } from "./components/WithClassName";
 
@@ -48,6 +51,7 @@ export { default as IconAlertCircle } from "./icons/IconAlertCircle";
 export { default as IconAnnotation } from "./icons/IconAnnotation";
 export { default as IconArrowDown } from "./icons/IconArrowDown";
 export { default as IconArrowDownMini } from "./icons/IconArrowDownMini";
+export { default as IconArrowRightMini } from "./icons/IconArrowRightMini";
 export { default as IconArrowUp } from "./icons/IconArrowUp";
 export { default as IconArrowUpMini } from "./icons/IconArrowUpMini";
 export { default as IconArrowUpRight } from "./icons/IconArrowUpRight";
@@ -59,9 +63,10 @@ export { default as IconBucket } from "./icons/IconBucket";
 export { default as IconCalendar } from "./icons/IconCalendar";
 export { default as IconCheck } from "./icons/IconCheck";
 export { default as IconCheckAll } from "./icons/IconCheckAll";
-export { default as IconCheckMini } from "./icons/IconCheckMini";
 export { default as IconCheckbox } from "./icons/IconCheckbox";
+export { default as IconCheckCircle } from "./icons/IconCheckCircle";
 export { default as IconChecked } from "./icons/IconChecked";
+export { default as IconCheckMini } from "./icons/IconCheckMini";
 export { default as IconChevronDown } from "./icons/IconChevronDown";
 export { default as IconCircle } from "./icons/IconCircle";
 export { default as IconCollapse } from "./icons/IconCollapse";
@@ -139,11 +144,11 @@ export { default as IconZapier } from "./icons/IconZapier";
 
 // Routing
 export {
-  location,
   ExternalLocationDescriptor,
   InternalLocationDescriptor,
-  LocationDescriptor,
   isLocationDescriptor,
+  location,
+  LocationDescriptor,
   queryBuilder,
   url
 } from "./routing";
