@@ -6,8 +6,8 @@ import { BORDER_RADIUS } from "../../../styles";
 
 storiesOf("Colors", module).add("All colors", () => (
   <Container>
-    {Object.keys(COLORS).map(key => (
-      <ColorWrapper>
+    {Object.keys(COLORS).map((key, i) => (
+      <ColorWrapper key={i}>
         <Color style={{ backgroundColor: (COLORS as { [key: string]: string })[key] }} />
         <p>{key}</p>
         <p>{(COLORS as { [key: string]: string })[key]}</p>
