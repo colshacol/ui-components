@@ -1,4 +1,5 @@
 import * as React from "react";
+import { types } from "typestyle";
 import { styled } from "typestyle-react";
 import {
   BORDER_RADIUS,
@@ -10,7 +11,7 @@ import {
 } from "../../styles";
 
 export interface Props {
-  children?: React.ReactChild;
+  children?: React.ReactNode;
   color?: string;
   disabled?: boolean;
   fullWidth?: boolean;
@@ -22,7 +23,7 @@ export interface Props {
 export class Button extends React.Component<Props> {
   public render() {
     const { children, color, disabled = false, fullWidth, height, id, onClick } = this.props;
-    const inner = { id: id, onClick: onClick, style: buttonBaseStyles, tabIndex: disabled ? -1 : 0, type: "button" };
+    const inner = { id: id, onClick: onClick, tabIndex: disabled ? -1 : 0, type: "button" };
 
     return color !== undefined ? (
       <ColoredButtonStyle styled={{ color, disabled, fullWidth, height }} {...inner}>
@@ -38,8 +39,25 @@ export class Button extends React.Component<Props> {
 
 const DISABLED_OPACITY = 0.5;
 
+export const buttonBaseProperties: types.NestedCSSProperties = {
+  alignItems: "center",
+  borderRadius: BORDER_RADIUS,
+  border: "none",
+  cursor: "pointer",
+  display: "inline-flex" as "inline-flex",
+  fontSize: "14px",
+  fontWeight: 500 as 500,
+  margin: 0,
+  outline: "none",
+  overflow: "hidden" as "hidden",
+  textOverflow: "ellipsis",
+  verticalAlign: "middle",
+  whiteSpace: "nowrap" as "nowrap"
+};
+
 export const ColoredButtonStyle = styled(
   "button",
+  buttonBaseProperties,
   ({
     color,
     disabled,
@@ -78,6 +96,7 @@ export const ColoredButtonStyle = styled(
 
 export const DefaultButtonStyle = styled(
   "button",
+  buttonBaseProperties,
   ({ disabled, fullWidth = false, height = 40 }: { disabled: boolean; fullWidth?: boolean; height?: number }) => ({
     backgroundColor: COLORS.white,
     boxShadow: `${BOX_SHADOW_BORDER}, ${BOX_SHADOW_SITTING}`,
@@ -103,18 +122,3 @@ export const DefaultButtonStyle = styled(
     }
   })
 );
-
-export const buttonBaseStyles = {
-  borderRadius: BORDER_RADIUS,
-  border: "none",
-  cursor: "pointer",
-  display: "inline-block" as "inline-block",
-  fontSize: "14px",
-  fontWeight: 500 as 500,
-  margin: 0,
-  outline: "none",
-  overflow: "hidden" as "hidden",
-  textOverflow: "ellipsis",
-  verticalAlign: "middle",
-  whiteSpace: "nowrap" as "nowrap"
-};

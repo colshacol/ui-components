@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
 import { BOX_SHADOW_FOCUS } from "../../styles";
-import { buttonBaseStyles } from "../Button";
+import { buttonBaseProperties } from "../Button";
 
 export interface Props {
   children?: React.ReactNode;
@@ -15,10 +15,10 @@ export interface Props {
 export class SubtleButton extends React.PureComponent<Props> {
   public render() {
     const { children, color, fullWidth, height, id, onClick } = this.props;
-    const inner = { id: id, onClick: onClick, style: { ...buttonBaseStyles, color: color }, type: "button" };
+    const inner = { id: id, onClick: onClick, type: "button" };
 
     return (
-      <SubtleButtonStyle styled={{ fullWidth, height }} {...inner}>
+      <SubtleButtonStyle styled={{ fullWidth, height, color }} {...inner}>
         {children}
       </SubtleButtonStyle>
     );
@@ -27,9 +27,10 @@ export class SubtleButton extends React.PureComponent<Props> {
 
 export const SubtleButtonStyle = styled(
   "button",
-  ({ fullWidth = false, height = 32 }: { fullWidth?: boolean; height?: number }) => ({
+  buttonBaseProperties,
+  ({ color = "inherit", fullWidth = false, height = 32 }: { color?: string; fullWidth?: boolean; height?: number }) => ({
     backgroundColor: "transparent",
-    color: "inherit",
+    color: color,
     height: `${height}px`,
     lineHeight: `${height}px`,
     maxWidth: "100%",

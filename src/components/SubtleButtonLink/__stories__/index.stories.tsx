@@ -1,6 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { SubtleButtonLink } from "..";
+import { IconArrowUp } from "../../..";
 import { location } from "../../../routing";
 
 const url = "http://example.com";
@@ -12,4 +13,9 @@ storiesOf(SubtleButtonLink.name, module)
     <p style={{ color: "green" }}>
       Demo text <SubtleButtonLink location={exampleLocation}>{url}</SubtleButtonLink> demo text.
     </p>
+  ))
+  .add("Text + Icon", () => (
+    <SubtleButtonLink location={exampleLocation}>
+      {url} <IconArrowUp />
+    </SubtleButtonLink>
   ));

@@ -1,10 +1,10 @@
 import * as React from "react";
 import { LocationDescriptor } from "../../routing";
-import { ColoredButtonStyle, DefaultButtonStyle, buttonBaseStyles } from "../Button";
+import { ColoredButtonStyle, DefaultButtonStyle } from "../Button";
 import { LocationLink } from "../LocationLink";
 
 export interface Props {
-  children?: React.ReactChild;
+  children?: React.ReactNode;
   color?: string;
   disabled?: boolean;
   fullWidth?: boolean;
@@ -16,7 +16,7 @@ export interface Props {
 export class ButtonLink extends React.Component<Props> {
   public render() {
     const { children, color, disabled = false, fullWidth, height, id, location } = this.props;
-    const inner = { id: id, style: buttonBaseStyles, tabIndex: disabled ? -1 : 0, type: "button" };
+    const inner = { id: id, tabIndex: disabled ? -1 : 0, type: "button" };
 
     return (
       <LocationLink location={location} tabIndex={-1}>

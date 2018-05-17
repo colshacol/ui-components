@@ -1,6 +1,5 @@
 import * as React from "react";
 import { LocationDescriptor } from "../../routing";
-import { buttonBaseStyles } from "../Button";
 import { LocationLink } from "../LocationLink";
 import { SubtleButtonStyle } from "../SubtleButton";
 
@@ -19,7 +18,7 @@ export class SubtleButtonLink extends React.PureComponent<Props> {
 
     return (
       <LocationLink location={location} tabIndex={-1} style={{ color: color }}>
-        <SubtleButtonStyle styled={{ fullWidth, height }} id={id} style={{ ...buttonBaseStyles, color: color }} type="button">
+        <SubtleButtonStyle styled={{ fullWidth, height }} id={id} type="button">
           {children}
         </SubtleButtonStyle>
       </LocationLink>
