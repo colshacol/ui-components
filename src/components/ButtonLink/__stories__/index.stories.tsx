@@ -9,7 +9,7 @@ storiesOf(ButtonLink.name, module).add("Default", () => (
 )).add("Color", () => (
   <ButtonLink color={COLORS.purple} location={location.external("http://example.com")}>http://example.com</ButtonLink>
 ))
-.add("With Icon", () => (
+.add("Text + Icon", () => (
   <ButtonLink location={location.external("http://example.com")}>
     Button <IconArrowUp />
   </ButtonLink>
