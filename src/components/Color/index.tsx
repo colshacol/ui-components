@@ -1,9 +1,9 @@
 import * as React from "react";
-import IconCheckMini from "src/icons/IconCheckMini";
-import IconMinus from "src/icons/IconMinus";
-import { BORDER_RADIUS, COLORS } from "src/styles";
-import CacheComputed from "src/util/CacheComputed";
 import { style } from "typestyle";
+import IconCheckMini from "../../icons/IconCheckMini";
+import IconMinus from "../../icons/IconMinus";
+import { BORDER_RADIUS, COLORS } from "../../styles";
+import CacheComputed from "../../util/CacheComputed";
 
 interface Props {
   color: string;

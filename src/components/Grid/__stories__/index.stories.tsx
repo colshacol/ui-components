@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { Item } from "src/components/Item";
 import { Grid } from "../";
+import { Item } from "../../Item";
 
 storiesOf("Grid", module).add("default", () => (
   <Grid>

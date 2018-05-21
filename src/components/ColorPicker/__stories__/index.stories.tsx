@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { COLORS } from "src/styles";
 import { ColorPicker } from "../";
+import { COLORS } from "../../../styles";
 
 storiesOf("ColorPicker", module).add("Interactive", () => {
   interface State {

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Color } from "src/components/Color";
-import { Grid } from "src/components/Grid";
-import { Item } from "src/components/Item";
-import { COLORS } from "src/styles";
+import { COLORS } from "../../styles";
+import { Color } from "../Color";
+import { Grid } from "../Grid";
+import { Item } from "../Item";
 
 interface Props {
   colors: string[];
