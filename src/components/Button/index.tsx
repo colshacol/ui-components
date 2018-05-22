@@ -20,7 +20,7 @@ export interface Props {
   onClick: () => void;
 }
 
-export class Button extends React.Component<Props> {
+export class Button extends React.PureComponent<Props> {
   public render() {
     const { children, color, disabled = false, fullWidth, height, id, onClick } = this.props;
     const inner = { id: id, onClick: onClick, tabIndex: disabled ? -1 : 0, type: "button" };
@@ -44,15 +44,17 @@ export const buttonBaseProperties: types.NestedCSSProperties = {
   borderRadius: BORDER_RADIUS,
   border: "none",
   cursor: "pointer",
-  display: "inline-flex" as "inline-flex",
+  display: "flex",
   fontSize: "14px",
-  fontWeight: 500 as 500,
+  fontWeight: 500,
+  justifyContent: "center",
   margin: 0,
   outline: "none",
-  overflow: "hidden" as "hidden",
+  overflow: "hidden",
+  textAlign: "center",
   textOverflow: "ellipsis",
   verticalAlign: "middle",
-  whiteSpace: "nowrap" as "nowrap"
+  whiteSpace: "nowrap"
 };
 
 export const ColoredButtonStyle = styled(
