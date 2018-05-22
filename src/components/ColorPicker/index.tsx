@@ -53,7 +53,6 @@ export class ColorPicker extends React.PureComponent<Props, State> {
           {allowCustom ? (
             <Item>
               <SmartTextInput
-                autofocus
                 error={error}
                 height={32}
                 onSave={value => {
