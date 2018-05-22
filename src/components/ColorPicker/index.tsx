@@ -86,6 +86,7 @@ export class ColorPicker extends React.PureComponent<Props, State> {
       this.setState({ error: "Invalid" });
     } else {
       this.setState({ error: undefined, selected: null });
+      this.props.onSelect(null);
     }
   };
 }
