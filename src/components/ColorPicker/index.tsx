@@ -80,7 +80,7 @@ export class ColorPicker extends React.PureComponent<Props, State> {
   }
 
   private selectColor = (color: string | null) => {
-    if (color && color.match("^#([A-Fa-f0-9]{6})$") !== null) {
+    if (color !== null && color.match("^#([A-Fa-f0-9]{6})$") !== null) {
       this.setState({ error: undefined, selected: color.toLowerCase() });
       this.props.onSelect(color);
     } else if (color !== null) {
