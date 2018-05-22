@@ -14,6 +14,7 @@ export interface Props {
   autofocus?: boolean;
   defaultValue?: string;
   error?: string;
+  height?: number;
   maxLength?: number;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -24,7 +25,7 @@ export interface Props {
 
 export class TextInput extends React.PureComponent<Props> {
   public render() {
-    const { autofocus, defaultValue, error, maxLength, onBlur, onChange, onKeyDown, placeholder, value } = this.props;
+    const { autofocus, defaultValue, error, height, maxLength, onBlur, onChange, onKeyDown, placeholder, value } = this.props;
     return (
       <OptionalErrorOverlay error={error}>
         <Input
@@ -35,6 +36,7 @@ export class TextInput extends React.PureComponent<Props> {
           onChange={onChange}
           onKeyDown={onKeyDown}
           placeholder={placeholder}
+          styled={{ height }}
           value={value}
         />
       </OptionalErrorOverlay>
@@ -42,7 +44,7 @@ export class TextInput extends React.PureComponent<Props> {
   }
 }
 
-const Input = styled("input", {
+const Input = styled("input", ({ height = 40 }: { height?: number }) => ({
   backgroundColor: COLORS.white,
   border: "none",
   borderRadius: BORDER_RADIUS,
@@ -51,8 +53,8 @@ const Input = styled("input", {
   color: COLORS.indigo,
   fontSize: "14px",
   fontWeight: 500,
-  height: "40px",
-  lineHeight: "20px",
+  height: `${height}px`,
+  lineHeight: `${height}px`,
   outline: "none",
   padding: "0 12px",
   whiteSpace: "pre-wrap" as "pre-wrap",
@@ -71,4 +73,4 @@ const Input = styled("input", {
       color: COLORS.i40
     }
   }
-});
+}));
