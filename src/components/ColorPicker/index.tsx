@@ -55,7 +55,7 @@ export class ColorPicker extends React.PureComponent<Props, State> {
                 error={error}
                 height={32}
                 onSave={value => {
-                  this.selectColor(value);
+                  this.selectColor(value.toLowerCase());
                 }}
                 placeholder="Custom HEX"
                 value={selected !== null ? selected : ""}
@@ -79,8 +79,8 @@ export class ColorPicker extends React.PureComponent<Props, State> {
   }
 
   private readonly selectColor = (color: string | null) => {
-    if (color !== null && color.match("^#([A-Fa-f0-9]{6})$") !== null) {
-      this.setState({ error: undefined, selected: color.toLowerCase() });
+    if (color !== null && color.match("^#(?:[0-9a-fA-F]{3}){1,2}$") !== null) {
+      this.setState({ error: undefined, selected: color });
       this.props.onSelect(color);
     } else if (color !== null) {
       this.setState({ error: "Invalid" });
