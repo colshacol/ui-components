@@ -1,39 +1,42 @@
+import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { ColorPicker } from "../";
 import { COLORS } from "../../../styles";
 
-storiesOf("ColorPicker", module).add("Interactive", () => {
-  interface State {
-    selected: string | null;
-  }
-  class Example extends React.PureComponent<{}, State> {
-    public state: Readonly<State> = { selected: null };
-
-    public render() {
-      return (
-        <div style={{ display: "flex" }}>
-          <ColorPicker
-            colors={[
-              COLORS.magenta,
-              COLORS.purple,
-              COLORS.blue,
-              COLORS.teal,
-              COLORS.green,
-              COLORS.lime,
-              COLORS.yellow,
-              COLORS.chocolate,
-              COLORS.orange
-            ]}
-            selected={this.state.selected}
-            onSelect={color => {
-              this.setState({ selected: color });
-            }}
-          />
-        </div>
-      );
-    }
-  }
-
-  return <Example />;
-});
+storiesOf("ColorPicker", module)
+  .add("Interactive", () => (
+    <ColorPicker
+      colors={[
+        COLORS.magenta,
+        COLORS.purple,
+        COLORS.blue,
+        COLORS.teal,
+        COLORS.green,
+        COLORS.lime,
+        COLORS.yellow,
+        COLORS.chocolate,
+        COLORS.orange
+      ]}
+      selected={COLORS.purple}
+      onSelect={action("onSelect")}
+    />
+  ))
+  .add("Disallow custom", () => (
+    <ColorPicker
+      allowCustom={false}
+      colors={[
+        COLORS.magenta,
+        COLORS.purple,
+        COLORS.blue,
+        COLORS.teal,
+        COLORS.green,
+        COLORS.lime,
+        COLORS.yellow,
+        COLORS.chocolate,
+        COLORS.orange
+      ]}
+      selected={COLORS.purple}
+      onSelect={action("onSelect")}
+    />
+  ));

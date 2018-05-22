@@ -2,7 +2,7 @@ import * as React from "react";
 import { style } from "typestyle";
 import IconCheckMini from "../../icons/IconCheckMini";
 import IconMinus from "../../icons/IconMinus";
-import { BORDER_RADIUS, COLORS } from "../../styles";
+import { BORDER_RADIUS, BOX_SHADOW_FOCUS, COLORS } from "../../styles";
 import CacheComputed from "../../util/CacheComputed";
 
 interface Props {
@@ -37,7 +37,7 @@ const colorStyleClassCache = new CacheComputed<string, string>(
           opacity: 1
         },
         "&:focus": {
-          boxShadow: `0 0 0 2px ${COLORS.white}, 0 0 0 4px ${color}`
+          boxShadow: BOX_SHADOW_FOCUS
         }
       },
 
