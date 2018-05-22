@@ -5,7 +5,7 @@ import IconMinus from "../../icons/IconMinus";
 import { BORDER_RADIUS, BOX_SHADOW_FOCUS, COLORS } from "../../styles";
 import CacheComputed from "../../util/CacheComputed";
 
-interface Props {
+export interface Props {
   color: string;
   onClick?: () => void;
   selected?: boolean;

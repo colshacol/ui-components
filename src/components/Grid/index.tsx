@@ -1,6 +1,10 @@
+import * as React from "react";
 import { styled } from "typestyle-react";
 
-interface Props {
+// https://github.com/Microsoft/TypeScript/issues/5711
+React;
+
+export interface Props {
   gridTemplateColumns?: string;
   gap?: number;
 }

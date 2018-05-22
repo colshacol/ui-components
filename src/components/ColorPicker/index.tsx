@@ -6,14 +6,14 @@ import { Flex } from "../Flex";
 import { FlexWrap } from "../FlexWrap";
 import { Item } from "../Item";
 
-interface Props {
+export interface Props {
   allowCustom?: boolean;
   colors: string[];
   onSelect: (color: string | null) => void;
   selected: string | null;
 }
 
-interface State {
+export interface State {
   error?: string;
   selected: string | null;
 }
@@ -35,10 +35,9 @@ export class ColorPicker extends React.PureComponent<Props, State> {
               {colors.map(color => {
                 const colorLowerCase = color.toLowerCase();
                 return (
-                  <Item>
+                  <Item key={colorLowerCase}>
                     <Color
                       color={colorLowerCase}
-                      key={colorLowerCase}
                       selected={selected === colorLowerCase}
                       onClick={() => {
                         this.selectColor(colorLowerCase);
@@ -79,7 +78,7 @@ export class ColorPicker extends React.PureComponent<Props, State> {
     );
   }
 
-  private selectColor = (color: string | null) => {
+  private readonly selectColor = (color: string | null) => {
     if (color !== null && color.match("^#([A-Fa-f0-9]{6})$") !== null) {
       this.setState({ error: undefined, selected: color.toLowerCase() });
       this.props.onSelect(color);

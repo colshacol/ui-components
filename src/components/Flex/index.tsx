@@ -1,7 +1,11 @@
+import * as React from "react";
 import { styled } from "typestyle-react";
 import { Item } from "../Item";
 
-interface Props {
+// https://github.com/Microsoft/TypeScript/issues/5711
+React;
+
+export interface Props {
   alignItems?: "flex-start" | "flex-end" | "baseline" | "center" | "stretch";
   justifyContent?: "flex-start" | "flex-end" | "center" | "space-around" | "space-between";
   layout?: "row" | "column";
