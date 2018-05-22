@@ -2,6 +2,7 @@ import * as React from "react";
 import { styled } from "typestyle-react";
 import { COLORS } from "../../styles";
 
+// https://github.com/Microsoft/TypeScript/issues/5711
 React;
 
 export const DropdownSeparator = styled("hr", {
