@@ -6,6 +6,8 @@ import { Flex } from "../Flex";
 import { FlexWrap } from "../FlexWrap";
 import { Item } from "../Item";
 
+const convertShorthandHex = require("color-shorthand-hex-to-six-digit");
+
 export interface Props {
   allowCustom?: boolean;
   colors: string[];
@@ -80,8 +82,9 @@ export class ColorPicker extends React.PureComponent<Props, State> {
 
   private readonly selectColor = (color: string | null) => {
     if (color !== null && color.match("^#(?:[0-9a-fA-F]{3}){1,2}$") !== null) {
-      this.setState({ error: undefined, selected: color });
-      this.props.onSelect(color);
+      const hex = convertShorthandHex(color);
+      this.setState({ error: undefined, selected: hex });
+      this.props.onSelect(hex);
     } else if (color !== null) {
       this.setState({ error: "Invalid" });
     } else {
