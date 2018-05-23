@@ -40,14 +40,11 @@ export class Button extends React.PureComponent<Props> {
 const DISABLED_OPACITY = 0.5;
 
 export const buttonBaseProperties: types.NestedCSSProperties = {
-  alignItems: "center",
   borderRadius: BORDER_RADIUS,
   border: "none",
   cursor: "pointer",
-  display: "flex",
   fontSize: "14px",
   fontWeight: 500,
-  justifyContent: "center",
   margin: 0,
   outline: "none",
   overflow: "hidden",
