@@ -1,9 +1,10 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { Grid } from "../";
+import { Box } from "../../../util/stories";
 import { Item } from "../../Item";
 
-storiesOf("Grid", module).add("default", () => (
+storiesOf("Grid", module).add("Default", () => (
   <Grid>
     <Item>
       <Box>First</Box>
@@ -25,16 +26,3 @@ storiesOf("Grid", module).add("default", () => (
     </Item>
   </Grid>
 ));
-
-const Box: React.StatelessComponent = ({ children }) => (
-  <span
-    style={{
-      backgroundColor: "lightgrey",
-      display: "inline-block",
-      height: 30,
-      width: "100%"
-    }}
-  >
-    {children}
-  </span>
-);

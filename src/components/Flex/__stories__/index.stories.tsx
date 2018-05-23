@@ -1,50 +1,59 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { Flex } from "../";
+import { Box } from "../../../util/stories";
 import { Item } from "../../Item";
 
 storiesOf("Flex", module)
-  .add("row", () => (
+  .add("Row", () => (
     <Flex styled={{ layout: "row" }}>
       <Item>
-        <Slate>First</Slate>
+        <Box>First</Box>
       </Item>
       <Item>
-        <Slate>Second</Slate>
+        <Box>Second</Box>
+      </Item>
+      <Item>
+        <Box>Third</Box>
       </Item>
     </Flex>
   ))
-  .add("row gap=10", () => (
-    <Flex styled={{ layout: "row", gap: 10 }}>
+  .add("Row with gap", () => (
+    <Flex styled={{ layout: "row", gap: 16 }}>
       <Item>
-        <Slate>First</Slate>
+        <Box>First</Box>
       </Item>
       <Item>
-        <Slate>Second</Slate>
+        <Box>Second</Box>
+      </Item>
+      <Item>
+        <Box>Third</Box>
       </Item>
     </Flex>
   ))
-  .add("column", () => (
+  .add("Column", () => (
     <Flex styled={{ layout: "column" }}>
       <Item>
-        <Slate>First</Slate>
+        <Box>First</Box>
       </Item>
       <Item>
-        <Slate>Second</Slate>
+        <Box>Second</Box>
+      </Item>
+      <Item>
+        <Box>Third</Box>
       </Item>
     </Flex>
   ))
-  .add("column gap=10", () => (
-    <Flex styled={{ layout: "column", gap: 10 }}>
+  .add("Column with gap", () => (
+    <Flex styled={{ layout: "column", gap: 16 }}>
       <Item>
-        <Slate>First</Slate>
+        <Box>First</Box>
       </Item>
       <Item>
-        <Slate>Second</Slate>
+        <Box>Second</Box>
+      </Item>
+      <Item>
+        <Box>Third</Box>
       </Item>
     </Flex>
   ));
-
-const Slate: React.StatelessComponent = ({ children }) => {
-  return <div style={{ backgroundColor: "lightgrey" }}>{children}</div>;
-};

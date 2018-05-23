@@ -1,10 +1,11 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { Flow } from "../";
+import { Box, Container } from "../../../util/stories";
 import { Item } from "../../Item";
 
 storiesOf("Flow", module)
-  .add("default gaps", () => (
+  .add("Default", () => (
     <Container>
       <Flow>
         <Item>
@@ -25,12 +26,18 @@ storiesOf("Flow", module)
         <Item>
           <Box>Sixth</Box>
         </Item>
+        <Item>
+          <Box>Seventh</Box>
+        </Item>
+        <Item>
+          <Box>Eighth</Box>
+        </Item>
       </Flow>
     </Container>
   ))
-  .add("with gap=10", () => (
+  .add("Custom gap", () => (
     <Container>
-      <Flow styled={{ gap: 10, rowGap: 10 }}>
+      <Flow styled={{ gap: 16, rowGap: 16 }}>
         <Item>
           <Box>First</Box>
         </Item>
@@ -49,22 +56,12 @@ storiesOf("Flow", module)
         <Item>
           <Box>Sixth</Box>
         </Item>
+        <Item>
+          <Box>Seventh</Box>
+        </Item>
+        <Item>
+          <Box>Eighth</Box>
+        </Item>
       </Flow>
     </Container>
   ));
-
-const Box: React.StatelessComponent = ({ children }) => (
-  <span
-    style={{
-      backgroundColor: "lightgrey",
-      display: "inline-block",
-      height: 30
-    }}
-  >
-    {children}
-  </span>
-);
-
-const Container: React.StatelessComponent = ({ children }) => (
-  <div style={{ backgroundColor: "grey", width: 150 }}>{children}</div>
-);

@@ -4,7 +4,7 @@ import * as React from "react";
 import { MeatballMenu } from "../";
 import { DropdownItem } from "../../DropdownItem";
 
-storiesOf(MeatballMenu.name, module).add("Example", () => (
+storiesOf(MeatballMenu.name, module).add("Default", () => (
   <MeatballMenu align="left">
     <DropdownItem action={action("onClick")} value="Save now" />
     <DropdownItem action={action("onClick")} value="Share" />

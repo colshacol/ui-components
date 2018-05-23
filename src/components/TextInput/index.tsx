@@ -57,6 +57,7 @@ const Input = styled("input", ({ height = 40 }: { height?: number }) => ({
   lineHeight: `${height}px`,
   outline: "none",
   padding: "0 12px",
+  textOverflow: "ellipsis",
   whiteSpace: "pre-wrap" as "pre-wrap",
   width: "100%",
 

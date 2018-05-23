@@ -4,13 +4,13 @@ import * as React from "react";
 import { DropdownItem } from "../";
 
 storiesOf(DropdownItem.name, module)
-  .add("default", () => <DropdownItem action={action("onClick")} value="Attribute" />)
-  .add("with arrow", () => <DropdownItem action={action("onClick")} arrow value="Note" />)
-  .add("active", () => <DropdownItem action={action("onClick")} value="Note" active />)
-  .add("wrap", () => (
+  .add("Default", () => <DropdownItem action={action("onClick")} value="Attribute" />)
+  .add("Arrow", () => <DropdownItem action={action("onClick")} arrow value="Note" />)
+  .add("Active", () => <DropdownItem action={action("onClick")} value="Note" active />)
+  .add("Wrapping", () => (
     <DropdownItem
       action={action("onClick")}
-      value="One two three four five six seven eight nine ten. One two three four five six seven eight nine ten. One two three four five six seven eight nine ten. One two three four five six seven eight nine ten. One two three four five six seven eight nine ten. One two three four five six seven eight nine ten. One two three four five six seven eight nine ten. One two three four five six seven eight nine ten."
+      value="Queenstown, New Zealand, sits on the shores of the South Island’s Lake Wakatipu, set against the dramatic Southern Alps."
       wrap
     />
   ));
