@@ -16,6 +16,18 @@ Running the storybook:
 yarn storybook
 ```
 
+Updating story snapshots:
+
+```sh
+yarn jest
+```
+
+TypeScript autofix:
+
+```sh
+yarn fix
+```
+
 Running tests:
 
 ```sh

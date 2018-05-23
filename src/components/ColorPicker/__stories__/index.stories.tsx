@@ -4,7 +4,7 @@ import * as React from "react";
 import { ColorPicker } from "../";
 import { COLORS } from "../../../styles";
 
-storiesOf("ColorPicker", module)
+storiesOf(ColorPicker.name, module)
   .add("Interactive", () => (
     <ColorPicker
       colors={[
