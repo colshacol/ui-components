@@ -11,7 +11,7 @@ storiesOf("AnimateSlideDown", module)
       <RedBox />
     </AnimateSlideDown>
   ))
-  .add("via <Portal><Layer /></Portal>", () => (
+  .add("via <Portal><Layer><AnimateSlideDown/></Layer></Portal>", () => (
     <>
       <BlueBox id="anchor" />
       <Portal>

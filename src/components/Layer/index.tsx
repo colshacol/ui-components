@@ -1,6 +1,6 @@
+import { debounceMicrotask } from "debounce-microtask";
 import * as React from "react";
 import { BORDER_RADIUS, Z_INDEX_HIGH } from "../../styles";
-import { microTaskDebounce } from "../../util/debounceMicrotask";
 import { OnEsc } from "../OnEsc";
 
 export interface Props {
@@ -46,7 +46,7 @@ export class Layer extends React.PureComponent<Props, State> {
    * until after libraries like typestyle-react have a chance to inject styles
    * to the DOM.
    */
-  private readonly scheduleStyleStateUpdate = microTaskDebounce(() => {
+  private readonly scheduleStyleStateUpdate = debounceMicrotask(() => {
     this.setState({ style: this.getStyle() });
   });
 
