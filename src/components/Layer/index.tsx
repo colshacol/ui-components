@@ -1,5 +1,6 @@
 import * as React from "react";
 import { BORDER_RADIUS, Z_INDEX_HIGH } from "../../styles";
+import { microTaskDebounce } from "../../util/debounceMicrotask";
 import { OnEsc } from "../OnEsc";
 
 export interface Props {
@@ -20,18 +21,10 @@ export class Layer extends React.PureComponent<Props, State> {
 
   private internalClick = false;
 
-  public componentWillMount() {
-    // I don't completely understand why it's necessary to update the styles in
-    // `#componentWillMount()` as well as `#componentDidMount()`, but without
-    // doing it in both we would see layout bugs where a parent element was not
-    // at its positioned when the layer positioned itself against it.
-    this.setState({ style: this.getStyle() });
-  }
-
   public componentDidMount() {
     document.addEventListener("click", this.handleGlobalClick);
     document.addEventListener("touchstart", this.handleGlobalClick);
-    this.setState({ style: this.getStyle() });
+    this.scheduleStyleStateUpdate();
   }
 
   public componentWillUnmount() {
@@ -47,6 +40,15 @@ export class Layer extends React.PureComponent<Props, State> {
       </span>
     );
   }
+
+  /**
+   * Schedule styles to be updated, debounced using a microtask defer evaluation
+   * until after libraries like typestyle-react have a chance to inject styles
+   * to the DOM.
+   */
+  private readonly scheduleStyleStateUpdate = microTaskDebounce(() => {
+    this.setState({ style: this.getStyle() });
+  });
 
   private getStyle() {
     const anchor = document.getElementById(this.props.parentId);

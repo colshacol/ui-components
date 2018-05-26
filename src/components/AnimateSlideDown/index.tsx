@@ -7,7 +7,7 @@ import { WithClassName } from "../WithClassName";
 const duration = 200;
 type STATE = "unmounted" | "exited" | "entering" | "entered" | "exiting";
 
-export const AnimateSlideDown = ({ children }: { children?: React.ReactElement<{ className?: string }> }) => (
+const AnimateSlideDown: React.SFC<{ children?: React.ReactElement<{ className?: string }> }> = ({ children }) => (
   <CSSTransition appear={true} timeout={32} in={true} classNames={{}}>
     {(state: STATE) => (
       <WithClassName
@@ -29,3 +29,5 @@ const enteredClass = style({
   transform: "translate3d(0, 0, 0)",
   opacity: 1
 });
+
+export { AnimateSlideDown };
