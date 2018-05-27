@@ -9,24 +9,32 @@ type STATE = "unmounted" | "exited" | "entering" | "entered" | "exiting";
  * in the element, and allows for optional slide/translate. The wrapped element
  * must support a `style` prop.
  *
- * @param x Initial horizontal offset (e.g. -10 will render as a slide to the
+ * @param x Initial horizontal offset in px (e.g. -10 will render as a slide to the
  * right).
- * @param y Initial vertical offset (e.g. -10 will render as a downward slide).
+ * @param y Initial vertical offset in px (e.g. -10 will render as a downward slide).
+ * @param z Initial z offset in px
+ * @param rx Initial X-axis rotation in deg
+ * @param ry Initial Y-axis rotation in deg
+ * @param rz Initial Z-axis rotation in deg
  * @param duration Animation duration in milliseconds.
  */
 const AnimateAppear: React.SFC<{
   children?: React.ReactElement<{ style?: React.CSSProperties }>;
   x?: number;
   y?: number;
+  z?: number;
+  rx?: number;
+  ry?: number;
+  rz?: number;
   duration?: number;
-}> = ({ children, x = 0, y = 0, duration = 200 }) => (
+}> = ({ children, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, duration = 200 }) => (
   <CSSTransition appear={true} timeout={32} in={true} classNames={{}}>
     {(state: STATE) => (
       <WithStyle
         style={
           state === "entering"
             ? {
-                transform: `translate3d(${x}px, ${y}px, 0)`,
+                transform: `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) translate3d(${x}px, ${y}px, ${z}px)`,
                 opacity: 0
               }
             : state === "entered"

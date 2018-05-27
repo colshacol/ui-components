@@ -21,6 +21,11 @@ storiesOf("AnimateAppear", module)
       <RedBox />
     </AnimateAppear>
   ))
+  .add("Rotate Y", () => (
+    <AnimateAppear ry={24}>
+      <RedBox />
+    </AnimateAppear>
+  ))
   .add("via <Portal><Layer><AnimateAppear/></Layer></Portal>", () => (
     <>
       <BlueBox id="anchor" />
