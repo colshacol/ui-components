@@ -31,7 +31,7 @@ const AnimateAppear: React.SFC<{
               }
             : state === "entered"
               ? {
-                  transition: `transform ${duration}ms cubic-bezier(0.1, 0.45, 0.25, 1), opacity ${duration}ms cubic-bezier(0.1, 0.45, 0.25, 1)`,
+                  transition: `transform ${duration}ms cubic-bezier(.2, .45, 0, 1), opacity ${duration}ms cubic-bezier(.2, .45, 0, 1)`,
                   transform: "translate3d(0, 0, 0)",
                   opacity: 1
                 }
