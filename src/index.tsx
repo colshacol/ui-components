@@ -1,4 +1,5 @@
 // Components
+export { AnimateAppear } from "./components/AnimateAppear";
 export { AnimateSlideDown } from "./components/AnimateSlideDown";
 export { Button } from "./components/Button";
 export { ButtonLink } from "./components/ButtonLink";
@@ -29,6 +30,7 @@ export { SubtleButtonLink } from "./components/SubtleButtonLink";
 export { TextInput } from "./components/TextInput";
 export { ThemeGlobalStyles } from "./components/ThemeGlobalStyles";
 export { WithClassName } from "./components/WithClassName";
+export { WithStyle } from "./components/WithStyle";
 
 // Constants
 export {

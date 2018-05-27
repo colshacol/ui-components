@@ -1,33 +1,10 @@
 import * as React from "react";
-import { CSSTransition } from "react-transition-group";
-import { classes } from "typestyle";
-import { style } from "typestyle-react";
-import { WithClassName } from "../WithClassName";
+import { AnimateAppear } from "../AnimateAppear";
 
-const duration = 200;
-type STATE = "unmounted" | "exited" | "entering" | "entered" | "exiting";
-
-const AnimateSlideDown: React.SFC<{ children?: React.ReactElement<{ className?: string }> }> = ({ children }) => (
-  <CSSTransition appear={true} timeout={32} in={true} classNames={{}}>
-    {(state: STATE) => (
-      <WithClassName
-        className={classes(state === "entering" ? enteringClass : null, state === "entered" ? enteredClass : null)}
-      >
-        {children}
-      </WithClassName>
-    )}
-  </CSSTransition>
+const AnimateSlideDown: React.SFC<{ children?: React.ReactElement<{ style?: React.CSSProperties }> }> = ({ children }) => (
+  <AnimateAppear y={-8} duration={200}>
+    {children}
+  </AnimateAppear>
 );
-
-const enteringClass = style({
-  transform: "translate3d(0, -8px, 0)",
-  opacity: 0
-});
-
-const enteredClass = style({
-  transition: `transform ${duration}ms cubic-bezier(0.1, 0.45, 0.25, 1), opacity ${duration}ms cubic-bezier(0.1, 0.45, 0.25, 1)`,
-  transform: "translate3d(0, 0, 0)",
-  opacity: 1
-});
 
 export { AnimateSlideDown };
