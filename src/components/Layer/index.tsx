@@ -1,4 +1,3 @@
-import { debounceMicrotask } from "debounce-microtask";
 import * as React from "react";
 import { BORDER_RADIUS, Z_INDEX_HIGH } from "../../styles";
 import { OnEsc } from "../OnEsc";
@@ -11,20 +10,23 @@ export interface Props {
 }
 
 export interface State {
-  style: object;
+  style?: React.CSSProperties;
 }
 
 export class Layer extends React.PureComponent<Props, State> {
-  public readonly state: State = {
-    style: {}
-  };
+  public readonly state: State = {};
 
   private internalClick = false;
 
   public componentDidMount() {
     document.addEventListener("click", this.handleGlobalClick);
     document.addEventListener("touchstart", this.handleGlobalClick);
-    this.scheduleStyleStateUpdate();
+
+    // Schedule styles to be updated, scheduled using an animation frame to
+    // ensure the DOM and styles have settled.
+    requestAnimationFrame(() => {
+      this.setState({ style: this.getStyle() });
+    });
   }
 
   public componentWillUnmount() {
@@ -33,22 +35,14 @@ export class Layer extends React.PureComponent<Props, State> {
   }
 
   public render() {
-    return (
-      <span style={this.state.style} onClick={this.handleClick} onTouchStart={this.handleTouch}>
+    const { style } = this.state;
+    return style === undefined ? null : (
+      <span style={style} onClick={this.handleClick} onTouchStart={this.handleTouch}>
         {this.props.onDismissAttempt !== undefined ? <OnEsc action={this.props.onDismissAttempt} /> : null}
         {this.props.children}
       </span>
     );
   }
-
-  /**
-   * Schedule styles to be updated, debounced using a microtask defer evaluation
-   * until after libraries like typestyle-react have a chance to inject styles
-   * to the DOM.
-   */
-  private readonly scheduleStyleStateUpdate = debounceMicrotask(() => {
-    this.setState({ style: this.getStyle() });
-  });
 
   private getStyle() {
     const anchor = document.getElementById(this.props.parentId);
@@ -67,9 +61,9 @@ export class Layer extends React.PureComponent<Props, State> {
         left: this.props.align === "left" ? scrollX + anchorRect.left : "auto",
         right: this.props.align === "right" ? `calc(100% - ${scrollX + anchorRect.right}px)` : "auto"
       };
-    } else {
-      return { display: "none" };
     }
+
+    return;
   }
 
   private readonly handleGlobalClick = () => {
