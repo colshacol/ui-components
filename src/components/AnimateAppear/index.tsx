@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CSSTransition } from "react-transition-group";
+import { Transition } from "react-transition-group";
 import { WithStyle } from "../WithStyle";
 
 type STATE = "unmounted" | "exited" | "entering" | "entered" | "exiting";
@@ -28,7 +28,7 @@ const AnimateAppear: React.SFC<{
   rz?: number;
   duration?: number;
 }> = ({ children, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, duration = 200 }) => (
-  <CSSTransition appear={true} timeout={32} in={true} classNames={{}}>
+  <Transition appear in timeout={0}>
     {(state: STATE) => (
       <WithStyle
         style={
@@ -49,7 +49,7 @@ const AnimateAppear: React.SFC<{
         {children}
       </WithStyle>
     )}
-  </CSSTransition>
+  </Transition>
 );
 
 export { AnimateAppear };

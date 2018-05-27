@@ -22,7 +22,7 @@ storiesOf("AnimateAppear", module)
     </AnimateAppear>
   ))
   .add("Rotate Y", () => (
-    <AnimateAppear ry={24}>
+    <AnimateAppear ry={180}>
       <RedBox />
     </AnimateAppear>
   ))
