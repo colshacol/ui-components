@@ -1,6 +1,6 @@
 import { styled } from "typestyle-react";
 
-interface Props {
+export interface Props {
   alignItems?: "flex-start" | "flex-end" | "baseline" | "center" | "stretch";
   layout?: "row" | "column";
 }

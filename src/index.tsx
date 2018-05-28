@@ -1,6 +1,8 @@
 // Components
 export { AnimateAppear } from "./components/AnimateAppear";
 export { AnimateSlideDown } from "./components/AnimateSlideDown";
+export { Avatar } from "./components/Avatar";
+export { Breadcrumbs } from "./components/Breadcrumbs";
 export { Button } from "./components/Button";
 export { ButtonLink } from "./components/ButtonLink";
 export { ColorPicker } from "./components/ColorPicker";
@@ -12,6 +14,7 @@ export { FlipFlop } from "./components/FlipFlop";
 export { Flex } from "./components/Flex";
 export { FlexWrap } from "./components/FlexWrap";
 export { Flow } from "./components/Flow";
+export { Fragment } from "./components/Fragment";
 export { Grid } from "./components/Grid";
 export { Item } from "./components/Item";
 export { Justify } from "./components/Justify";
