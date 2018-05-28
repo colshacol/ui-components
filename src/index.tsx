@@ -14,6 +14,7 @@ export { FlexWrap } from "./components/FlexWrap";
 export { Flow } from "./components/Flow";
 export { Grid } from "./components/Grid";
 export { Item } from "./components/Item";
+export { Justify } from "./components/Justify";
 export { KeyboardListener } from "./components/KeyboardListener";
 export { Layer } from "./components/Layer";
 export { Link } from "./components/Link";
