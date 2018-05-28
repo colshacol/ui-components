@@ -103,6 +103,7 @@ export { default as IconImage } from "./icons/IconImage";
 export { default as IconInfo } from "./icons/IconInfo";
 export { default as IconInterpolation } from "./icons/IconInterpolation";
 export { default as IconKeyboard } from "./icons/IconKeyboard";
+export { default as IconLinkMini } from "./icons/IconLinkMini";
 export { default as IconList } from "./icons/IconList";
 export { default as IconLoading } from "./icons/IconLoading";
 export { default as IconMail } from "./icons/IconMail";
