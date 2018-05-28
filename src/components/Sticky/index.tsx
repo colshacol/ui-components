@@ -4,14 +4,14 @@ import { extend, media } from "typestyle";
 import { styled } from "typestyle-react";
 import { BOX_SHADOW_STICKY, BREAKPOINT_PHONE, Z_INDEX_LOW } from "../../styles";
 
-interface Props {
+export interface Props {
   stickOnMobile?: boolean;
   offset?: number;
   shadow?: boolean;
   zIndex?: number;
 }
 
-interface State {
+export interface State {
   shadow: boolean;
 }
 

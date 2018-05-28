@@ -1,4 +1,8 @@
+import * as React from "react";
 import { styled } from "typestyle-react";
+
+// https://github.com/Microsoft/TypeScript/issues/5711
+React;
 
 export interface Props {
   alignItems?: "flex-start" | "flex-end" | "baseline" | "center" | "stretch";
