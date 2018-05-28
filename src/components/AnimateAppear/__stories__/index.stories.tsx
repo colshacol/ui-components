@@ -1,11 +1,11 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { styled } from "typestyle-react";
 import { AnimateAppear } from "../";
+import { BlueBox, RedBox } from "../../../util/stories";
 import { Layer } from "../../Layer";
 import { Portal } from "../../Portal";
 
-storiesOf("AnimateAppear", module)
+storiesOf(AnimateAppear.name, module)
   .add("Basic", () => (
     <AnimateAppear>
       <RedBox />
@@ -38,17 +38,3 @@ storiesOf("AnimateAppear", module)
       </Portal>
     </>
   ));
-
-const RedBox = styled("div", {
-  background: "red",
-  display: "flex",
-  width: "100px",
-  height: "100px"
-});
-
-const BlueBox = styled("div", {
-  background: "blue",
-  display: "flex",
-  width: "100px",
-  height: "100px"
-});

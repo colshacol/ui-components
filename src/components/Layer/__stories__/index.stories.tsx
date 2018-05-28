@@ -1,15 +1,39 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { styled } from "typestyle-react";
 import { Layer } from "../";
+import { BlueBox, RedBox } from "../../../util/stories";
 import { Portal } from "../../Portal";
 
 storiesOf(Layer.name, module)
+  .add("Left align", () => (
+    <>
+      <Portal>
+        <Layer parentId="redbox" align="left">
+          <BlueBox styled={{ size: 32 }} />
+        </Layer>
+      </Portal>
+      <Portal>
+        <RedBox id="redbox" />
+      </Portal>
+    </>
+  ))
+  .add("Right align", () => (
+    <>
+      <Portal>
+        <Layer parentId="redbox" align="right">
+          <BlueBox styled={{ size: 32 }} />
+        </Layer>
+      </Portal>
+      <Portal>
+        <RedBox id="redbox" />
+      </Portal>
+    </>
+  ))
   .add("Layer before target", () => (
     <>
       <Portal>
         <Layer parentId="redbox" align="right">
-          <BlueBox />
+          <BlueBox styled={{ size: 32 }} />
         </Layer>
       </Portal>
       <Portal>
@@ -24,22 +48,8 @@ storiesOf(Layer.name, module)
       </Portal>
       <Portal>
         <Layer parentId="redbox" align="right">
-          <BlueBox />
+          <BlueBox styled={{ size: 32 }} />
         </Layer>
       </Portal>
     </>
   ));
-
-const RedBox = styled("div", {
-  background: "red",
-  display: "flex",
-  width: "100px",
-  height: "100px"
-});
-
-const BlueBox = styled("div", {
-  background: "blue",
-  display: "flex",
-  width: "50px",
-  height: "50px"
-});

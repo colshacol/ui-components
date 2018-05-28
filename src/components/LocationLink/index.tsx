@@ -16,7 +16,7 @@ export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
  *
  * Intended to be used with the exported `locations` helpers.
  */
-export class LocationLink extends React.Component<Props> {
+export class LocationLink extends React.PureComponent<Props> {
   public render() {
     const { className = "", location, presentation, ...other } = this.props;
 
@@ -67,23 +67,26 @@ export class LocationLink extends React.Component<Props> {
 
     $nest: {
       "&:hover, &:focus": {
-        color: COLORS.purple
+        color: COLORS.purple,
+        textDecoration: "underline"
       }
     }
   });
 
-  // When used in the context of "text" the link should be rendered purple.
+  // When used in the context of "text" the link should be rendered purple
+  // then underlined on hover.
   private static readonly textStyle = style({
     color: COLORS.purple,
 
     $nest: {
       "&:hover, &:focus": {
-        color: COLORS.purple
+        color: COLORS.purple,
+        textDecoration: "underline"
       }
     }
   });
 
-  // Subtle link rendered as grey text then bright purple on hover
+  // Subtle link rendered as grey text then purple on hover.
   private static readonly subtleStyle = style({
     color: COLORS.i60,
     height: "1em",
