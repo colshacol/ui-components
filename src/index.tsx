@@ -31,6 +31,7 @@ export { SmallText } from "./components/SmallText";
 export { SmartTextInput } from "./components/SmartTextInput";
 export { SubtleButton } from "./components/SubtleButton";
 export { SubtleButtonLink } from "./components/SubtleButtonLink";
+export { Sticky } from "./components/Sticky";
 export { TextInput } from "./components/TextInput";
 export { ThemeGlobalStyles } from "./components/ThemeGlobalStyles";
 export { WithClassName } from "./components/WithClassName";
