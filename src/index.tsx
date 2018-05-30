@@ -17,6 +17,7 @@ export { Flow } from "./components/Flow";
 export { Fragment } from "./components/Fragment";
 export { Grid } from "./components/Grid";
 export { Item } from "./components/Item";
+export { InfoDropdown } from "./components/InfoDropdown";
 export { Justify } from "./components/Justify";
 export { KeyboardListener } from "./components/KeyboardListener";
 export { Layer } from "./components/Layer";
