@@ -39,11 +39,13 @@ const Label = styled("td", {
   fontWeight: 600,
   paddingRight: "24px",
   overflow: "hidden",
-  textOverflow: "ellipsis"
+  textOverflow: "ellipsis",
+  verticalAlign: "top"
 });
 
 const Value = styled("td", {
   fontSize: "12px",
   overflow: "hidden",
-  textOverflow: "ellipsis"
+  textOverflow: "ellipsis",
+  verticalAlign: "top"
 });
