@@ -28,6 +28,7 @@ export { OnEsc } from "./components/OnEsc";
 export { OptionalErrorOverlay } from "./components/OptionalErrorOverlay";
 export { Portal } from "./components/Portal";
 export { RxSubscribe } from "./components/RxSubscribe";
+export { ShowOnHover } from "./components/ShowOnHover";
 export { SmallText } from "./components/SmallText";
 export { SmartTextInput } from "./components/SmartTextInput";
 export { SubtleButton } from "./components/SubtleButton";
@@ -36,6 +37,7 @@ export { Stack } from "./components/Stack";
 export { Sticky } from "./components/Sticky";
 export { TextInput } from "./components/TextInput";
 export { ThemeGlobalStyles } from "./components/ThemeGlobalStyles";
+export { Tooltip } from "./components/Tooltip";
 export { WithClassName } from "./components/WithClassName";
 export { WithStyle } from "./components/WithStyle";
 
