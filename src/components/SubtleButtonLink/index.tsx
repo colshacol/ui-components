@@ -6,6 +6,7 @@ import { SubtleButtonStyle } from "../SubtleButton";
 export interface Props {
   children?: React.ReactNode;
   color?: string;
+  disabled?: boolean;
   fullWidth?: boolean;
   id?: string;
   height?: number;
@@ -14,13 +15,19 @@ export interface Props {
 
 export class SubtleButtonLink extends React.PureComponent<Props> {
   public render() {
-    const { children, color = "inherit", fullWidth, height, id, location } = this.props;
+    const { children, color = "inherit", disabled = false, fullWidth, height, id, location } = this.props;
 
-    return (
+    const button = (
+      <SubtleButtonStyle styled={{ disabled, fullWidth, height }} id={id} type="button">
+        {children}
+      </SubtleButtonStyle>
+    );
+
+    return disabled ? (
+      button
+    ) : (
       <LocationLink location={location} tabIndex={-1} style={{ color: color }}>
-        <SubtleButtonStyle styled={{ fullWidth, height }} id={id} type="button">
-          {children}
-        </SubtleButtonStyle>
+        {button}
       </LocationLink>
     );
   }

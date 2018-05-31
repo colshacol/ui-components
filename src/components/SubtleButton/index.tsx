@@ -1,11 +1,12 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
 import { BOX_SHADOW_FOCUS } from "../../styles";
-import { buttonBaseProperties } from "../Button";
+import { DISABLED_OPACITY, buttonBaseProperties } from "../Button";
 
 export interface Props {
   children?: React.ReactNode;
   color?: string;
+  disabled?: boolean;
   fullWidth?: boolean;
   id?: string;
   height?: number;
@@ -14,11 +15,11 @@ export interface Props {
 
 export class SubtleButton extends React.PureComponent<Props> {
   public render() {
-    const { children, color, fullWidth, height, id, onClick } = this.props;
+    const { children, color, disabled = false, fullWidth, height, id, onClick } = this.props;
     const inner = { id: id, onClick: onClick, type: "button" };
 
     return (
-      <SubtleButtonStyle styled={{ fullWidth, height, color }} {...inner}>
+      <SubtleButtonStyle styled={{ color, disabled, fullWidth, height }} {...inner}>
         {children}
       </SubtleButtonStyle>
     );
@@ -28,13 +29,25 @@ export class SubtleButton extends React.PureComponent<Props> {
 export const SubtleButtonStyle = styled(
   "button",
   buttonBaseProperties,
-  ({ color = "inherit", fullWidth = false, height = 32 }: { color?: string; fullWidth?: boolean; height?: number }) => ({
+  ({
+    color = "inherit",
+    disabled,
+    fullWidth = false,
+    height = 32
+  }: {
+    color?: string;
+    disabled: boolean;
+    fullWidth?: boolean;
+    height?: number;
+  }) => ({
     backgroundColor: "transparent",
     color: color,
     height: `${height}px`,
     lineHeight: `${height}px`,
     maxWidth: "100%",
     padding: "0 8px",
+    pointerEvents: disabled ? "none" : undefined,
+    opacity: disabled ? DISABLED_OPACITY : undefined,
     width: fullWidth ? "100%" : "auto",
 
     $nest: {

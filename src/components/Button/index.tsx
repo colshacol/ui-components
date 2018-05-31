@@ -37,7 +37,7 @@ export class Button extends React.PureComponent<Props> {
   }
 }
 
-const DISABLED_OPACITY = 0.5;
+export const DISABLED_OPACITY = 0.5;
 
 export const buttonBaseProperties: types.NestedCSSProperties = {
   borderRadius: BORDER_RADIUS,

@@ -7,6 +7,11 @@ import { Container } from "../../../util/stories";
 
 storiesOf(SubtleButton.name, module)
   .add("Default", () => <SubtleButton onClick={action("onClick")}>Default</SubtleButton>)
+  .add("Disabled", () => (
+    <SubtleButton onClick={action("onClick")} disabled>
+      Disabled
+    </SubtleButton>
+  ))
   .add("Color prop", () => (
     <SubtleButton color={COLORS.purple} onClick={action("onClick")}>
       Purple button

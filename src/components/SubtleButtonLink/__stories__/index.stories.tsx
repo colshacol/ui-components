@@ -10,6 +10,11 @@ const exampleLocation = location.external(url);
 
 storiesOf(SubtleButtonLink.name, module)
   .add("Default", () => <SubtleButtonLink location={exampleLocation}>Default</SubtleButtonLink>)
+  .add("Disabled", () => (
+    <SubtleButtonLink location={exampleLocation} disabled>
+      Disabled
+    </SubtleButtonLink>
+  ))
   .add("Color prop", () => (
     <SubtleButtonLink color={COLORS.purple} location={exampleLocation}>
       Purple button
