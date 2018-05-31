@@ -4,8 +4,15 @@ import { OnEsc } from "../OnEsc";
 
 export interface Props {
   align: "left" | "right";
+  /**
+   * When `true` (default), `<Layer>` treats inside clicks as attempts to
+   * dismiss (will call `onDismissAttempt`). This is the default behaviour as
+   * it's been found to be generally desirable.
+   */
+  dismissOnInsideClick?: boolean;
   onDismissAttempt?: () => void;
   onOutsideClick?: () => void;
+  onClick?: () => void;
   parentId: string;
 }
 
@@ -81,7 +88,11 @@ export class Layer extends React.PureComponent<Props, State> {
   private readonly handleClick: React.MouseEventHandler<HTMLSpanElement> = () => {
     this.internalClick = true;
 
-    if (this.props.onDismissAttempt !== undefined) {
+    if (this.props.onClick !== undefined) {
+      this.props.onClick();
+    }
+
+    if (this.props.dismissOnInsideClick !== false && this.props.onDismissAttempt !== undefined) {
       this.props.onDismissAttempt();
     }
   };

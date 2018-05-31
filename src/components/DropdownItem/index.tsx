@@ -3,6 +3,7 @@ import { style, styled } from "typestyle-react";
 import IconArrowUpRightMini from "../../icons/IconArrowUpRightMini";
 import { LocationDescriptor, isLocationDescriptor } from "../../routing";
 import { COLORS } from "../../styles";
+import { Dropdown } from "../Dropdown";
 import { LocationLink } from "../LocationLink";
 
 export interface Props {
@@ -24,11 +25,15 @@ export interface Props {
   icon?: React.ReactNode;
   value?: React.ReactNode;
   wrap?: boolean;
+  children?: undefined;
+  // If true, does not trigger the parent dropdown's `onLeafClick` handler on
+  // click.
+  branch?: boolean;
 }
 
 export class DropdownItem extends React.PureComponent<Props> {
   public render() {
-    const { action, active = false, arrow = false, disabled = false, icon, value, wrap = false } = this.props;
+    const { action, active = false, arrow = false, disabled = false, icon, branch = false, value, wrap = false } = this.props;
     const buttonIcon = icon != null ? <IconContainer>{icon}</IconContainer> : null;
     const arrowIcon = arrow ? (
       <ArrowContainer>
@@ -44,15 +49,36 @@ export class DropdownItem extends React.PureComponent<Props> {
       </Button>
     );
 
-    if (disabled) {
-      return <span>{button}</span>;
-    } else if (isLocationDescriptor(action)) {
-      return <LocationLink location={action} className={linkClassName} tabIndex={-1} children={button} />;
-    } else if (action !== undefined) {
-      return <span onClick={action}>{button}</span>;
-    } else {
-      return button;
-    }
+    return (
+      <Dropdown.Context.Consumer>
+        {({ onLeafClick }) =>
+          disabled ? (
+            <span>{button}</span>
+          ) : isLocationDescriptor(action) ? (
+            <LocationLink
+              location={action}
+              className={linkClassName}
+              tabIndex={-1}
+              children={button}
+              onClick={!branch ? onLeafClick : undefined}
+            />
+          ) : (
+            <span
+              onClick={() => {
+                if (action !== undefined) {
+                  action();
+                }
+                if (!branch && onLeafClick !== undefined) {
+                  onLeafClick();
+                }
+              }}
+            >
+              {button}
+            </span>
+          )
+        }
+      </Dropdown.Context.Consumer>
+    );
   }
 }
 

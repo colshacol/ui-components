@@ -1,12 +1,13 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
+import { AnimateSlideDown } from "../..";
 import { BORDER_RADIUS, BOX_SHADOW_BORDER, BOX_SHADOW_LIFTED, COLORS } from "../../styles";
-import { AnimateSlideDown } from "../AnimateSlideDown";
 
 export interface Props {
   autofocus?: boolean;
   maxHeight?: number;
   maxWidth?: number;
+  onLeafClick?: () => void;
 }
 
 export class Dropdown extends React.PureComponent<Props> {
@@ -22,25 +23,29 @@ export class Dropdown extends React.PureComponent<Props> {
   }
 
   public render() {
-    const { autofocus = false, maxHeight, maxWidth } = this.props;
+    const { autofocus = false, maxHeight, maxWidth, onLeafClick } = this.props;
     const overflow = maxHeight !== undefined;
 
     return (
-      <AnimateSlideDown>
-        <Container
-          style={{ maxWidth, maxHeight }}
-          styled={{ overflow }}
-          innerRef={e => {
-            if (e !== null && autofocus) {
-              this.focus(e);
-            }
-          }}
-        >
-          {this.props.children}
-        </Container>
-      </AnimateSlideDown>
+      <Dropdown.Context.Provider value={{ onLeafClick }}>
+        <AnimateSlideDown>
+          <Container
+            style={{ maxWidth, maxHeight }}
+            styled={{ overflow }}
+            innerRef={e => {
+              if (e !== null && autofocus) {
+                this.focus(e);
+              }
+            }}
+          >
+            {this.props.children}
+          </Container>
+        </AnimateSlideDown>
+      </Dropdown.Context.Provider>
     );
   }
+
+  public static Context = React.createContext<Pick<Props, "onLeafClick">>({});
 }
 
 const Container = styled("div", ({ overflow }: { overflow: boolean }) => ({
