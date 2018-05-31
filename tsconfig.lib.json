@@ -5,6 +5,7 @@
   },
   "exclude": [
     "./src/**/__specs__/*",
-    "./src/**/__stories__/*"
+    "./src/**/__stories__/*",
+    "./src/**/__all.tsx"
   ]
 }
