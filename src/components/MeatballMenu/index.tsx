@@ -1,8 +1,8 @@
 import * as React from "react";
-import IconMoreHorizontal from "../../icons/IconMoreHorizontal";
 import { Button } from "../Button";
 import { Dropdown } from "../Dropdown";
 import { FlipFlop } from "../FlipFlop";
+import IconMoreHorizontal from "../Icons/IconMoreHorizontal";
 import { Layer } from "../Layer";
 import { Portal } from "../Portal";
 import { SubtleButton } from "../SubtleButton";
