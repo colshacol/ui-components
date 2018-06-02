@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Button } from "../Button";
 import { Dropdown } from "../Dropdown";
-import { FlipFlop } from "../FlipFlop";
 import IconMoreHorizontal from "../Icons/IconMoreHorizontal";
 import { Layer } from "../Layer";
 import { Portal } from "../Portal";
@@ -13,8 +12,21 @@ export interface Props {
   onToggle?: (active: boolean) => void;
   subtleButtonHeight?: number;
   subtle?: boolean;
-  children: React.ReactNode | ((api: { toggle: () => void }) => React.ReactNode);
+  children:
+    | React.ReactNode
+    | ((api: { dismiss: () => void; push: (child: React.ReactNode) => void; pop: () => void }) => React.ReactNode);
 }
+
+export interface ClosedState {
+  type: "closed";
+}
+
+export interface OpenState {
+  type: "open";
+  pushed: ReadonlyArray<React.ReactNode>;
+}
+
+export type State = ClosedState | OpenState;
 
 let counter: number = 0;
 
@@ -38,8 +50,8 @@ let counter: number = 0;
  * function child to MeatballMenu, and take full control over what's rendered:
  *
  *     <MeatballMenu align="left">
- *       {({ toggle }) => (
- *         <Dropdown onLeafClick={toggle}>
+ *       {({ dismiss }) => (
+ *         <Dropdown onLeafClick={dismiss}>
  *           <DropdownItem value="Profile" action={action("click Profile")} />
  *           <DropdownItem value="Team" action={action("click Team")} />
  *           <DropdownSeparator />
@@ -52,88 +64,123 @@ let counter: number = 0;
  * multi-level menu where one dropdown item triggers another to open.
  *
  *     <MeatballMenu align="left">
- *      {({ toggle }) => (
- *        <Stack>
- *          {({ push }) => (
- *            <Dropdown onLeafClick={toggle} key="root">
- *              <DropdownItem
- *                value="Profile…"
- *                action={() =>
- *                  push(
- *                    <Dropdown onLeafClick={toggle} key="profile">
- *                      <DropdownText lines={["Name: <user name>", "Email: <user email>"]} />
- *                    </Dropdown>
- *                  )
- *                }
- *                branch
- *              />
- *              <DropdownItem value="Team" action={action("click Team")} />
- *              <DropdownSeparator />
- *              <DropdownItem value="Help" action={action("click Help")} />
- *            </Dropdown>
- *          )}
- *        </Stack>
- *      )}
- *    </MeatballMenu>
+ *       {({ dismiss, push }) => (
+ *         <Dropdown onLeafClick={dismiss} key="root">
+ *           <DropdownItem
+ *             value="Profile…"
+ *             action={() =>
+ *               push(
+ *                 <Dropdown onLeafClick={dismiss} key="profile">
+ *                   <DropdownText lines={["Name: <user name>", "Email: <user email>"]} />
+ *                 </Dropdown>
+ *               )
+ *             }
+ *             branch
+ *           />
+ *           <DropdownItem value="Team" action={action("click Team")} />
+ *           <DropdownSeparator />
+ *           <DropdownItem value="Help" action={action("click Help")} />
+ *         </Dropdown>
+ *       )}
+ *     </MeatballMenu>
  *
  * **Note:** `DropdownItem` supports a `branch` to exclude the item from the
  * `onLeafClick` callback.
+ *
+ * It's intentional that in the advanced mode, the consumer is required to
+ * render the `<Dropdown>` rather than it being implicitly rendered by
+ * `MeatballMenu`. This allows for non-dropdown panels to be shown.
  */
-export class MeatballMenu extends React.PureComponent<Props> {
+export class MeatballMenu extends React.PureComponent<Props, State> {
+  public readonly state: State = { type: "closed" };
   private readonly id = `MeatballMenu_${counter++}`;
 
+  // HACK: a flag to allow us to conditionally ignore the "dismiss attempt" from
+  // `<Layer>` when the user clicks the meatball while in a nested menu.
+  private handlingMeatballClick = false;
+
   public render() {
-    const { align, children, id = this.id, onToggle, subtleButtonHeight, subtle = false } = this.props;
+    const { align, children, id = this.id, subtleButtonHeight, subtle = false } = this.props;
+    const { state } = this;
+
     return (
-      <FlipFlop>
-        {({ toggle, active }) => (
-          <>
-            {subtle === true ? (
-              <SubtleButton
-                height={subtleButtonHeight}
-                id={id}
-                onClick={() => {
-                  toggle();
-                  if (onToggle !== undefined) {
-                    onToggle(!active);
-                  }
-                }}
-              >
-                <IconMoreHorizontal />
-              </SubtleButton>
-            ) : (
-              <Button
-                id={id}
-                onClick={() => {
-                  toggle();
-                  if (onToggle !== undefined) {
-                    onToggle(!active);
-                  }
-                }}
-              >
-                <IconMoreHorizontal />
-              </Button>
-            )}
-            {active ? (
-              <Portal>
-                <Layer
-                  align={align}
-                  dismissOnInsideClick={false}
-                  onDismissAttempt={() => {
-                    toggle();
-                    if (onToggle !== undefined) {
-                      onToggle(!active);
-                    }
-                  }}
-                  parentId={id}
-                >
-                  {typeof children === "function" ? children({ toggle }) : <Dropdown onLeafClick={toggle}>{children}</Dropdown>}
-                </Layer>
-              </Portal>
-            ) : null}
-          </>
+      <>
+        {subtle === true ? (
+          <SubtleButton height={subtleButtonHeight} id={id} onClick={this.handleMeatballClick}>
+            <IconMoreHorizontal />
+          </SubtleButton>
+        ) : (
+          <Button id={id} onClick={this.handleMeatballClick}>
+            <IconMoreHorizontal />
+          </Button>
         )}
-      </FlipFlop>
+        {state.type === "open" ? (
+          <Portal>
+            <Layer align={align} dismissOnInsideClick={false} onDismissAttempt={this.handleLayerDismissAttempt} parentId={id}>
+              {typeof children === "function" ? (
+                state.pushed.length === 0 ? (
+                  children(this.childrenApi)
+                ) : (
+                  state.pushed.slice(-1)
+                )
+              ) : (
+                <Dropdown onLeafClick={this.dismiss}>{children}</Dropdown>
+              )}
+            </Layer>
+          </Portal>
+        ) : null}
+      </>
     );
   }
+
+  private readonly handleMeatballClick = () => {
+    this.handlingMeatballClick = true;
+    requestAnimationFrame(() => {
+      this.handlingMeatballClick = false;
+    });
+    this.toggle();
+  };
+
+  private readonly handleLayerDismissAttempt = () => {
+    if (!this.handlingMeatballClick) {
+      this.dismiss();
+    }
+  };
+
+  /**
+   * Toggle between states, or to a specific state, calling `onToggle` when
+   * necessary. When `nextOpen` is not passed, it's determined based on the
+   * current state.
+   *
+   * An important (but subtle) UX detail of MeatballMenu is that when a nested
+   * menu is displayed, clicking the meatball **does not** dismiss the menu, but
+   * instead stays open and navigates back to the first menu.
+   */
+  private readonly toggle = (nextOpen = this.state.type === "closed" || this.state.pushed.length > 0) => {
+    const nextState: State = nextOpen ? { type: "open", pushed: [] } : { type: "closed" };
+    this.setState(nextState);
+    if (nextState.type !== this.state.type && this.props.onToggle !== undefined) {
+      this.props.onToggle(nextState.type === "open");
+    }
+  };
+
+  private readonly dismiss = () => {
+    this.toggle(false);
+  };
+
+  private readonly childrenApi = {
+    dismiss: this.dismiss,
+    // Alias of `dismiss` (legacy API)
+    toggle: this.dismiss,
+    push: (children: React.ReactNode) => {
+      this.setState(
+        prevState => (prevState.type === "open" ? { type: "open", pushed: [...prevState.pushed, children] } : prevState)
+      );
+    },
+    pop: () => {
+      this.setState(
+        prevState => (prevState.type === "open" ? { type: "open", pushed: prevState.pushed.slice(0, -1) } : prevState)
+      );
+    }
+  };
 }
