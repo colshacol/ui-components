@@ -14,7 +14,9 @@ export interface Props {
   subtle?: boolean;
   children:
     | React.ReactNode
-    | ((api: { dismiss: () => void; push: (child: React.ReactNode) => void; pop: () => void }) => React.ReactNode);
+    | ((
+        api: { dismiss: () => void; toggle: () => void; push: (child: React.ReactNode) => void; pop: () => void }
+      ) => React.ReactNode);
 }
 
 export interface ClosedState {
