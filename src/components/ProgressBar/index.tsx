@@ -23,7 +23,6 @@ const Wrapper = styled("div", (props: { style: "light" | "dark" }) => ({
   backgroundColor: props.style === "dark" ? `rgba(36, 18, 77, 0.2)` : "rgba(255, 255, 255, 0.2)",
   borderRadius: BORDER_RADIUS,
   height: "4px",
-  minWidth: "128px",
   position: "relative",
   overflow: "hidden",
   width: "100%"
