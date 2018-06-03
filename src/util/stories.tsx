@@ -8,6 +8,8 @@ export const Box = styled(
     background: color,
     borderRadius: BORDER_RADIUS,
     display: "flex",
+    fontSize: "14px",
+    fontWeight: 600,
     height: size,
     padding: padding,
     width: size
