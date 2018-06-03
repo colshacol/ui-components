@@ -1,23 +1,24 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { AnimateSlideDown } from "../";
-import { BlueBox, RedBox } from "../../../util/stories";
+import { COLORS } from "../../../styles";
+import { Box } from "../../../util/stories";
 import { Layer } from "../../Layer";
 import { Portal } from "../../Portal";
 
 storiesOf(AnimateSlideDown.name, module)
   .add("Basic", () => (
     <AnimateSlideDown>
-      <RedBox />
+      <Box styled={{ color: COLORS.orange, size: 64 }} />
     </AnimateSlideDown>
   ))
   .add("via <Portal><Layer><AnimateSlideDown/></Layer></Portal>", () => (
     <>
-      <BlueBox id="anchor" />
+      <Box id="anchor" styled={{ color: COLORS.orange, size: 64 }} />
       <Portal>
         <Layer parentId="anchor" align="right">
           <AnimateSlideDown>
-            <RedBox />
+            <Box styled={{ color: COLORS.blue, size: 48 }} />
           </AnimateSlideDown>
         </Layer>
       </Portal>

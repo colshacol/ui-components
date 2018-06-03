@@ -1,7 +1,8 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { Layer } from "../";
-import { BlueBox, RedBox } from "../../../util/stories";
+import { COLORS } from "../../../styles";
+import { Box } from "../../../util/stories";
 import { Portal } from "../../Portal";
 
 storiesOf(Layer.name, module)
@@ -9,11 +10,11 @@ storiesOf(Layer.name, module)
     <>
       <Portal>
         <Layer parentId="redbox" align="left">
-          <BlueBox styled={{ size: 32 }} />
+          <Box styled={{ color: COLORS.blue, size: 32 }} />
         </Layer>
       </Portal>
       <Portal>
-        <RedBox id="redbox" />
+        <Box id="redbox" styled={{ color: COLORS.orange, size: 64 }} />
       </Portal>
     </>
   ))
@@ -21,11 +22,11 @@ storiesOf(Layer.name, module)
     <>
       <Portal>
         <Layer parentId="redbox" align="right">
-          <BlueBox styled={{ size: 32 }} />
+          <Box styled={{ color: COLORS.blue, size: 32 }} />
         </Layer>
       </Portal>
       <Portal>
-        <RedBox id="redbox" />
+        <Box id="redbox" styled={{ color: COLORS.orange, size: 64 }} />
       </Portal>
     </>
   ))
@@ -33,22 +34,22 @@ storiesOf(Layer.name, module)
     <>
       <Portal>
         <Layer parentId="redbox" align="right">
-          <BlueBox styled={{ size: 32 }} />
+          <Box styled={{ color: COLORS.blue, size: 32 }} />
         </Layer>
       </Portal>
       <Portal>
-        <RedBox id="redbox" />
+        <Box id="redbox" styled={{ color: COLORS.orange, size: 64 }} />
       </Portal>
     </>
   ))
   .add("Layer after target", () => (
     <>
       <Portal>
-        <RedBox id="redbox" />
+        <Box id="redbox" styled={{ color: COLORS.orange, size: 64 }} />
       </Portal>
       <Portal>
         <Layer parentId="redbox" align="right">
-          <BlueBox styled={{ size: 32 }} />
+          <Box styled={{ color: COLORS.blue, size: 32 }} />
         </Layer>
       </Portal>
     </>

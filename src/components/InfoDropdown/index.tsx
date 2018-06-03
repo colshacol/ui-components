@@ -35,7 +35,7 @@ const Table = styled("table", {
 
 const Label = styled("td", {
   color: COLORS.i60,
-  fontSize: "12px",
+  fontSize: "14px",
   fontWeight: 600,
   paddingRight: "24px",
   overflow: "hidden",
@@ -44,7 +44,7 @@ const Label = styled("td", {
 });
 
 const Value = styled("td", {
-  fontSize: "12px",
+  fontSize: "14px",
   overflow: "hidden",
   textOverflow: "ellipsis",
   verticalAlign: "top"
