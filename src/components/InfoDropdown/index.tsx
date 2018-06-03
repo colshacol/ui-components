@@ -15,10 +15,10 @@ export class InfoDropdown extends React.PureComponent<Props> {
         <div style={{ padding: "8px 24px" }}>
           <Table>
             <tbody>
-              {info.map((f, j) => (
-                <tr key={j}>
-                  <Label>{f.label}</Label>
-                  <Value>{f.value}</Value>
+              {info.map(({ label, value }, i) => (
+                <tr key={i}>
+                  <Label>{label}</Label>
+                  <Value>{value}</Value>
                 </tr>
               ))}
             </tbody>
