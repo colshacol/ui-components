@@ -2,7 +2,7 @@ import * as React from "react";
 import { styled } from "typestyle-react";
 import { BORDER_RADIUS, COLORS } from "../../styles";
 
-interface Props {
+export interface Props {
   completed: number;
   style?: "light" | "dark";
 }
