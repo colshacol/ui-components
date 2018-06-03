@@ -67,12 +67,12 @@ let counter: number = 0;
  *
  *     <MeatballMenu align="left">
  *       {({ dismiss, push }) => (
- *         <Dropdown onLeafClick={dismiss} key="root">
+ *         <Dropdown onLeafClick={dismiss}>
  *           <DropdownItem
  *             value="Profile…"
  *             action={() =>
  *               push(
- *                 <Dropdown onLeafClick={dismiss} key="profile">
+ *                 <Dropdown onLeafClick={dismiss}>
  *                   <DropdownText lines={["Name: <user name>", "Email: <user email>"]} />
  *                 </Dropdown>
  *               )
@@ -123,7 +123,10 @@ export class MeatballMenu extends React.PureComponent<Props, State> {
                 state.pushed.length === 0 ? (
                   children(this.childrenApi)
                 ) : (
-                  state.pushed.slice(-1)
+                  // Use a keyed fragment to ensure each depth of menu is
+                  // re-rendered. This ensures appear/leave animations correctly
+                  // trigger.
+                  <React.Fragment key={state.pushed.length}>{state.pushed[state.pushed.length - 1]}</React.Fragment>
                 )
               ) : (
                 <Dropdown onLeafClick={this.dismiss}>{children}</Dropdown>

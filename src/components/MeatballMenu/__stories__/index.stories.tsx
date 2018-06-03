@@ -6,6 +6,7 @@ import { Dropdown } from "../../Dropdown";
 import { DropdownItem } from "../../DropdownItem";
 import { DropdownSeparator } from "../../DropdownSeparator";
 import { DropdownText } from "../../DropdownText";
+import { InfoDropdown } from "../../InfoDropdown";
 
 storiesOf(MeatballMenu.name, module)
   .add("Default", () => (
@@ -33,20 +34,22 @@ storiesOf(MeatballMenu.name, module)
   .add("Advanced (multiple steps)", () => (
     <MeatballMenu align="left" onToggle={action("onToggle")}>
       {({ dismiss, push, pop }) => (
-        <Dropdown key="root" onLeafClick={dismiss}>
+        <Dropdown onLeafClick={dismiss}>
           <DropdownItem
             action={() =>
               push(
-                // Explicitly declaring keys ensures this dropdown is
-                // rendered fresh, which is significant as it causes the
-                // appear animation to display.
-                <Dropdown key="details" onLeafClick={dismiss}>
+                <Dropdown onLeafClick={dismiss}>
                   <DropdownItem action={pop} value="Back…" branch />
                   <DropdownItem value="Close" />
                 </Dropdown>
               )
             }
             value="Nested menu…"
+            branch
+          />
+          <DropdownItem
+            action={() => push(<InfoDropdown info={[{ label: "Date", value: new Date().toISOString() }]} />)}
+            value="Properties…"
             branch
           />
           <DropdownItem action={action("close")} value="Close" />
@@ -57,12 +60,12 @@ storiesOf(MeatballMenu.name, module)
   .add("JSDoc example", () => (
     <MeatballMenu align="left" onToggle={action("onToggle")}>
       {({ dismiss, push }) => (
-        <Dropdown onLeafClick={dismiss} key="root">
+        <Dropdown onLeafClick={dismiss}>
           <DropdownItem
             value="Profile…"
             action={() =>
               push(
-                <Dropdown onLeafClick={dismiss} key="profile">
+                <Dropdown onLeafClick={dismiss}>
                   <DropdownText lines={["Name: <user name>", "Email: <user email>"]} />
                 </Dropdown>
               )
