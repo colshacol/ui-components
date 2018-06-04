@@ -1,7 +1,8 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
-import { COLORS } from "../../styles";
+import { SmallText } from "../..";
 import { Dropdown } from "../Dropdown";
+import { Fragment } from "../Fragment";
 
 export interface Props {
   info: Array<{ label: string; value: string }>;
@@ -11,41 +12,24 @@ export class InfoDropdown extends React.PureComponent<Props> {
   public render() {
     const { info } = this.props;
     return (
-      <Dropdown>
-        <div style={{ padding: "8px 24px" }}>
-          <Table>
-            <tbody>
-              {info.map(({ label, value }, i) => (
-                <tr key={i}>
-                  <Label>{label}</Label>
-                  <Value>{value}</Value>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
+      <Dropdown maxWidth={256}>
+        <div style={{ padding: "8px 24px 0" }}>
+          {info.map(({ label, value }, i) => (
+            <Fragment key={i}>
+              <SmallText>{label}</SmallText>
+              <Value>{value}</Value>
+            </Fragment>
+          ))}
         </div>
       </Dropdown>
     );
   }
 }
 
-const Table = styled("table", {
-  borderCollapse: "collapse"
-});
-
-const Label = styled("td", {
-  color: COLORS.i60,
+const Value = styled("div", {
   fontSize: "14px",
-  fontWeight: 600,
-  paddingRight: "24px",
+  fontWeight: 500,
+  marginBottom: "8px",
   overflow: "hidden",
-  textOverflow: "ellipsis",
-  verticalAlign: "top"
-});
-
-const Value = styled("td", {
-  fontSize: "14px",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
-  verticalAlign: "top"
+  textOverflow: "ellipsis"
 });
