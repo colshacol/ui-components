@@ -1,8 +1,8 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
 import { AnimateSlideDown } from "../AnimateSlideDown";
-import { Fragment } from "../Fragment";
 import { Layer } from "../Layer";
+import { OnHover } from "../OnHover";
 import { Portal } from "../Portal";
 
 export type AlignmentOptions = "left" | "right";
@@ -22,7 +22,7 @@ export interface State {
 
 let counter: number = 0;
 
-export class ShowOnHover extends React.Component<Props, State> {
+export class ShowOnHover extends React.PureComponent<Props, State> {
   public state: Readonly<State> = { alt: false, open: false };
   private readonly id = `ShowOnHover_${counter++}`;
   private timer: number | null | undefined;
@@ -59,15 +59,10 @@ export class ShowOnHover extends React.Component<Props, State> {
   public render() {
     const { align = "left", children, renderAltComponent, renderComponent } = this.props;
     return (
-      <Fragment>
-        <span
-          id={this.id}
-          onMouseEnter={this.onMouseEnter}
-          onMouseLeave={this.onMouseLeave}
-          style={{ display: "flex", maxWidth: "100%" }}
-        >
+      <>
+        <OnHover id={this.id} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
           {children}
-        </span>
+        </OnHover>
 
         {this.state.open ? (
           <Portal>
@@ -84,7 +79,7 @@ export class ShowOnHover extends React.Component<Props, State> {
             </Layer>
           </Portal>
         ) : null}
-      </Fragment>
+      </>
     );
   }
 }

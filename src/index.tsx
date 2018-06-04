@@ -25,6 +25,7 @@ export { Link } from "./components/Link";
 export { LocationLink } from "./components/LocationLink";
 export { MeatballMenu } from "./components/MeatballMenu";
 export { OnEsc } from "./components/OnEsc";
+export { OnHover } from "./components/OnHover";
 export { OptionalErrorOverlay } from "./components/OptionalErrorOverlay";
 export { Portal } from "./components/Portal";
 export { ProgressBar } from "./components/ProgressBar";

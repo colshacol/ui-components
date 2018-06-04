@@ -4,6 +4,6 @@ import { ShowOnHover } from "../";
 
 storiesOf(ShowOnHover.name, module).add("Default", () => (
   <ShowOnHover renderComponent={() => "Hover component"}>
-    <p>Paragraph</p>
+    <p>Hover me!</p>
   </ShowOnHover>
 ));
