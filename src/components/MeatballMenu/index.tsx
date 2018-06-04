@@ -26,7 +26,15 @@ export interface Props {
   children:
     | React.ReactNode
     | ((
-        api: { dismiss: () => void; toggle: () => void; push: (child: React.ReactNode) => void; pop: () => void }
+        api: {
+          dismiss: () => void;
+          /**
+           * @deprecated use `dismiss`
+           */
+          toggle: () => void;
+          push: (child: React.ReactNode) => void;
+          pop: () => void;
+        }
       ) => React.ReactNode);
 }
 

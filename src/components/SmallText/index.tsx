@@ -18,13 +18,13 @@ export class SmallText extends React.PureComponent<Props> {
         color = "rgba(255, 255, 255, .8)";
         break;
       case "dark":
-        color = "rgba(20, 11, 47, .6)";
+        color = "rgba(36, 18, 77, .6)";
         break;
       case "darker":
         color = COLORS.indigo;
         break;
       default:
-        color = "rgba(20, 11, 47, .6)";
+        color = "rgba(36, 18, 77, .6)";
     }
 
     return <Text styled={{ gap, shade: color, size }}>{children}</Text>;
