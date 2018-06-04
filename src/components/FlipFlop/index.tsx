@@ -7,9 +7,17 @@ export type ToggleApi = Readonly<{
    */
   toggle: () => void;
   /**
-   * Explicitly set a specific `active` value.
+   * Set a specific `active` value.
    */
   set: (active: boolean) => void;
+  /**
+   * Set `active` to `true`.
+   */
+  setOn: () => void;
+  /**
+   * Set `active` to `false`.
+   */
+  setOff: () => void;
 }>;
 
 export interface Props {
@@ -29,6 +37,8 @@ export class FlipFlop extends React.Component<Props, State> {
     return this.props.children({
       active: this.state.active,
       set: this.set,
+      setOff: this.setOff,
+      setOn: this.setOn,
       toggle: this.toggle
     });
   }
@@ -39,5 +49,13 @@ export class FlipFlop extends React.Component<Props, State> {
 
   private readonly set = (active: boolean) => {
     this.setState({ active });
+  };
+
+  private readonly setOn = () => {
+    this.setState({ active: true });
+  };
+
+  private readonly setOff = () => {
+    this.setState({ active: false });
   };
 }
