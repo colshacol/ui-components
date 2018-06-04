@@ -7,11 +7,7 @@ export interface Props {
   onMouseLeave: (e: React.MouseEvent<HTMLSpanElement>) => void;
 }
 
-let counter: number = 0;
-
 export class OnHover extends React.PureComponent<Props, {}> {
-  private readonly id = this.props.id !== undefined ? this.props.id : `OnHover_${counter++}`;
-
   private readonly onMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
     this.props.onMouseEnter(e);
   };
@@ -23,7 +19,7 @@ export class OnHover extends React.PureComponent<Props, {}> {
   public render() {
     return (
       <span
-        id={this.id}
+        id={this.props.id}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
         style={{ display: "flex", maxWidth: "100%" }}
