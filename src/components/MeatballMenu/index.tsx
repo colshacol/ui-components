@@ -182,8 +182,9 @@ export class MeatballMenu extends React.PureComponent<Props, State> {
    */
   private readonly toggle = (nextOpen = this.state.type === "closed" || this.state.pushed.length > 0) => {
     const nextState: State = nextOpen ? { type: "open", pushed: [] } : { type: "closed" };
+    const oldState = this.state;
     this.setState(nextState);
-    if (nextState.type !== this.state.type && this.props.onToggle !== undefined) {
+    if (nextState.type !== oldState.type && this.props.onToggle !== undefined) {
       this.props.onToggle(nextState.type === "open");
     }
   };
