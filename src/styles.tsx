@@ -7,15 +7,37 @@ export const COLORS = {
   i08: "#eeecf1",
   i04: "#f6f6f8",
   i02: "#fbfafc",
-  // The darkpurple (dp) shades are all deprecated
-  // Pleaes use indigo instead!
+  /**
+   * @deprecated Use indigo instead
+   */
   darkpurple: "#140b2f",
+  /**
+   * @deprecated Use i80 instead
+   */
   dp80: "#433c59",
+  /**
+   * @deprecated Use i60 instead
+   */
   dp60: "#726d82",
+  /**
+   * @deprecated Use i40 instead
+   */
   dp40: "#a19dac",
+  /**
+   * @deprecated Use i20 instead
+   */
   dp20: "#d0ced5",
+  /**
+   * @deprecated Use i08 instead
+   */
   dp08: "#edecef",
+  /**
+   * @deprecated Use i04 instead
+   */
   dp04: "#f6f5f7",
+  /**
+   * @deprecated Use i02 instead
+   */
   dp02: "#fafafb",
   magenta: "#f84f77",
   m80: "#f97292",
@@ -97,7 +119,7 @@ export const COLORS = {
 export const BORDER_RADIUS = "4px";
 
 // ‘Indigo’ as an rgb value
-const indigoRgb = "36, 18, 77";
+export const indigoRgb = "36, 18, 77";
 
 // Depth level 1 (sitting on background)
 export const BOX_SHADOW_BORDER_LIGHTER = `0 0 0 1px rgba(${indigoRgb}, .05)`;
