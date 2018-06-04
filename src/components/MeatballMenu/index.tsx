@@ -9,13 +9,32 @@ import { SubtleButton } from "../SubtleButton";
 export interface Props {
   align: "left" | "right";
   id?: string;
+  /**
+   * Height of the trigger button (in pixels).
+   */
+  height?: number;
   onToggle?: (active: boolean) => void;
+  /**
+   * Height of the subtle button.
+   * @deprecated use `height`
+   */
   subtleButtonHeight?: number;
+  /**
+   * If `true`, render a subtle button instead of a regular button.
+   */
   subtle?: boolean;
   children:
     | React.ReactNode
     | ((
-        api: { dismiss: () => void; toggle: () => void; push: (child: React.ReactNode) => void; pop: () => void }
+        api: {
+          dismiss: () => void;
+          /**
+           * @deprecated use `dismiss`
+           */
+          toggle: () => void;
+          push: (child: React.ReactNode) => void;
+          pop: () => void;
+        }
       ) => React.ReactNode);
 }
 
@@ -102,17 +121,17 @@ export class MeatballMenu extends React.PureComponent<Props, State> {
   private handlingMeatballClick = false;
 
   public render() {
-    const { align, children, id = this.id, subtleButtonHeight, subtle = false } = this.props;
+    const { align, children, height, id = this.id, subtleButtonHeight, subtle = false } = this.props;
     const { state } = this;
 
     return (
       <>
-        {subtle === true ? (
-          <SubtleButton height={subtleButtonHeight} id={id} onClick={this.handleMeatballClick}>
+        {subtle ? (
+          <SubtleButton height={height !== undefined ? height : subtleButtonHeight} id={id} onClick={this.handleMeatballClick}>
             <IconMoreHorizontal />
           </SubtleButton>
         ) : (
-          <Button id={id} onClick={this.handleMeatballClick}>
+          <Button height={height} id={id} onClick={this.handleMeatballClick}>
             <IconMoreHorizontal />
           </Button>
         )}

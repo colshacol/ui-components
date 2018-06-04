@@ -57,6 +57,15 @@ storiesOf(MeatballMenu.name, module)
       )}
     </MeatballMenu>
   ))
+  .add("Custom height", () => (
+    <MeatballMenu align="left" height={24} subtle onToggle={action("onToggle")}>
+      <DropdownItem action={action("Save now")} value="Save now" />
+      <DropdownItem action={action("Share")} value="Share" />
+      <DropdownItem action={action("Attribute")} value="Attribute" />
+      <DropdownItem action={action("View history")} value="View history" />
+      <DropdownItem action={action("Delete")} value="Delete" />
+    </MeatballMenu>
+  ))
   .add("JSDoc example", () => (
     <MeatballMenu align="left" onToggle={action("onToggle")}>
       {({ dismiss, push }) => (
