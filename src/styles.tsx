@@ -5,7 +5,7 @@ export const COLORS = {
   i40: "#a7a0b8",
   i20: "#d3d0db",
   i08: "#eeecf1",
-  i04: "#f6f6f8",
+  i04: "#f4f3f6",
   i02: "#fbfafc",
   /**
    * @deprecated Use indigo instead
