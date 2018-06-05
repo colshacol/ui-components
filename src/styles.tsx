@@ -29,6 +29,10 @@ export const COLORS = {
    */
   dp20: "#d0ced5",
   /**
+   * @deprecated Use i12 instead
+   */
+  dp12: "#edecef",
+  /**
    * @deprecated Use i08 instead
    */
   dp08: "#edecef",

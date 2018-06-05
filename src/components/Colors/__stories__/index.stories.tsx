@@ -19,7 +19,7 @@ storiesOf("Colors", module).add("All colors", () => (
 const Container = styled("div", {
   display: "flex",
   flexWrap: "wrap",
-  maxWidth: "644px"
+  maxWidth: "720px"
 });
 
 const ColorWrapper = styled("div", {
