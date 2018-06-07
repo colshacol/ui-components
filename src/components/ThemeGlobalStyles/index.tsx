@@ -20,8 +20,8 @@ export class ThemeGlobalStyles extends React.Component {
       fontWeight: 400,
       margin: 0,
       padding: 0,
-      "-moz-osx-font-smoothing": "grayscale",
-      "-webkit-font-smoothing": "antialiased"
+      ["-moz-osx-font-smoothing" as string]: "grayscale",
+      ["-webkit-font-smoothing" as string]: "antialiased"
     });
 
     cssRule("a", {
