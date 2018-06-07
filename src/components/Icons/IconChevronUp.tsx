@@ -9,7 +9,7 @@ import * as React from "react";
 export default createSvg((width = 24, height = 24, color): React.ReactElement<Props> => (
   <svg width={width} height={height} viewBox="0 0 24 24">
     <path
-      d="M6 9l6 6 6-6"
+      d="M18 15l-6-6-6 6"
       stroke={color}
       strokeWidth={2}
       fill="none"
