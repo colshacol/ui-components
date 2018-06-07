@@ -12,6 +12,11 @@ storiesOf(Button.name, module)
       Button
     </Button>
   ))
+  .add("Custom height", () => (
+    <Button height={24} onClick={action("onClick")}>
+      Button
+    </Button>
+  ))
   .add("Centered", () => (
     <div style={{ textAlign: "center" }}>
       <Button onClick={action("onClick")}>Button in the middle of the screen</Button>
