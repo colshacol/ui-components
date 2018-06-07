@@ -30,6 +30,7 @@ export { OptionalErrorOverlay } from "./components/OptionalErrorOverlay";
 export { Portal } from "./components/Portal";
 export { ProgressBar } from "./components/ProgressBar";
 export { RxSubscribe } from "./components/RxSubscribe";
+export { Select } from "./components/Select";
 export { ShowOnHover } from "./components/ShowOnHover";
 export { SmallText } from "./components/SmallText";
 export { SmartTextInput } from "./components/SmartTextInput";

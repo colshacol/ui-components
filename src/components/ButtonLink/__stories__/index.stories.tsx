@@ -12,6 +12,11 @@ storiesOf(ButtonLink.name, module)
       Button
     </ButtonLink>
   ))
+  .add("Custom height", () => (
+    <ButtonLink height={24} location={location.external("http://example.com")}>
+      Button
+    </ButtonLink>
+  ))
   .add("Centered", () => (
     <div style={{ textAlign: "center" }}>
       <ButtonLink location={location.external("http://example.com")}>Button in the middle of the screen</ButtonLink>
