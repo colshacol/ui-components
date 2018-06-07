@@ -20,9 +20,13 @@ import IconCheckMini from './IconCheckMini'
 import IconCheckbox from './IconCheckbox'
 import IconChecked from './IconChecked'
 import IconChevronDown from './IconChevronDown'
+import IconChevronDownMini from './IconChevronDownMini'
 import IconChevronLeft from './IconChevronLeft'
+import IconChevronLeftMini from './IconChevronLeftMini'
 import IconChevronRight from './IconChevronRight'
+import IconChevronRightMini from './IconChevronRightMini'
 import IconChevronUp from './IconChevronUp'
+import IconChevronUpMini from './IconChevronUpMini'
 import IconCircle from './IconCircle'
 import IconCollapse from './IconCollapse'
 import IconColor from './IconColor'
@@ -120,9 +124,13 @@ export default {
   IconCheckbox,
   IconChecked,
   IconChevronDown,
+  IconChevronDownMini,
   IconChevronLeft,
+  IconChevronLeftMini,
   IconChevronRight,
+  IconChevronRightMini,
   IconChevronUp,
+  IconChevronUpMini,
   IconCircle,
   IconCollapse,
   IconColor,
