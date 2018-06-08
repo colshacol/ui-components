@@ -138,7 +138,7 @@ export const indigoRgb = "36, 18, 77";
 // Depth level 1 (sitting on background)
 export const BOX_SHADOW_BORDER_LIGHTER = `0 0 0 1px rgba(${indigoRgb}, .05)`;
 export const BOX_SHADOW_BORDER = `0 0 0 1px rgba(${indigoRgb}, .1)`;
-export const BOX_SHADOW_BORDER_DARKER = `0 0 0 1px rgba(${indigoRgb}, .15)`;
+export const BOX_SHADOW_BORDER_DARKER = `0 0 0 1px rgba(${indigoRgb}, .2)`;
 export const BOX_SHADOW_SITTING = `0 2px 4px -2px rgba(${indigoRgb}, .2)`;
 
 // Depth level 2 (sticky scrolling headers)
