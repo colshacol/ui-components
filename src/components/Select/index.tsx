@@ -13,6 +13,7 @@ export interface Props<T> {
   align?: "left" | "right";
   chevron?: boolean;
   defaultText?: string;
+  disabled?: boolean;
   height?: number;
   onSelect: (value: T) => void;
   options: ReadonlyArray<SelectOption<T>>;
@@ -30,7 +31,15 @@ export class Select<T = string> extends React.PureComponent<Props<T>> {
   private readonly id = `Select_${counter++}`;
 
   public render() {
-    const { align = "left", chevron = true, defaultText = "Select…", height = 40, onSelect, options } = this.props;
+    const {
+      align = "left",
+      chevron = true,
+      defaultText = "Select…",
+      disabled = false,
+      height = 40,
+      onSelect,
+      options
+    } = this.props;
     const activeOption = options.find(option => option.selected === true);
     const text = activeOption !== undefined ? activeOption.text : defaultText;
 
@@ -38,7 +47,7 @@ export class Select<T = string> extends React.PureComponent<Props<T>> {
       <FlipFlop>
         {({ toggle, active }) => (
           <>
-            <Button fullWidth height={height} id={this.id} onClick={toggle}>
+            <Button disabled={disabled} fullWidth height={height} id={this.id} onClick={toggle}>
               <Justify>
                 <Text>{text}</Text>
                 {chevron ? (
