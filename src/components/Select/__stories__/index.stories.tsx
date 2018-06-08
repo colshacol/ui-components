@@ -30,6 +30,20 @@ storiesOf(Select.name, module)
       ]}
     />
   ))
+  .add("Disabled", () => (
+    <Select
+      disabled
+      height={32}
+      onSelect={() => {}}
+      options={[
+        { text: "Performance", value: "performance", selected: false },
+        { text: "Usability", value: "usability", selected: false },
+        { text: "Navigation", value: "navigation", selected: false },
+        { text: "Reliability", value: "reliability", selected: false },
+        { text: "Features", value: "features", selected: false }
+      ]}
+    />
+  ))
   .add("Long options", () => (
     <Select
       defaultText="Group"

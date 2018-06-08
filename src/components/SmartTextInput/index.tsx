@@ -4,6 +4,7 @@ import { TextInput } from "../TextInput";
 
 export interface Props {
   autofocus?: boolean;
+  disabled?: boolean;
   error?: string;
   height?: number;
   onDismiss?: () => void;
@@ -52,12 +53,13 @@ export class SmartTextInput extends React.PureComponent<Props, State> {
   };
 
   public render() {
-    const { autofocus, height, error, placeholder } = this.props;
+    const { autofocus, disabled, height, error, placeholder } = this.props;
     const { value } = this.state;
 
     return (
       <TextInput
         autofocus={autofocus}
+        disabled={disabled}
         error={error}
         height={height}
         onBlur={this.handleBlur}

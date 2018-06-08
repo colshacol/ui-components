@@ -13,6 +13,7 @@ import { OptionalErrorOverlay } from "../OptionalErrorOverlay";
 export interface Props {
   autofocus?: boolean;
   defaultValue?: string;
+  disabled?: boolean;
   error?: string;
   height?: number;
   maxLength?: number;
@@ -25,12 +26,25 @@ export interface Props {
 
 export class TextInput extends React.PureComponent<Props> {
   public render() {
-    const { autofocus, defaultValue, error, height, maxLength, onBlur, onChange, onKeyDown, placeholder, value } = this.props;
+    const {
+      autofocus,
+      defaultValue,
+      disabled,
+      error,
+      height,
+      maxLength,
+      onBlur,
+      onChange,
+      onKeyDown,
+      placeholder,
+      value
+    } = this.props;
     return (
       <OptionalErrorOverlay error={error}>
         <Input
           autoFocus={autofocus}
           defaultValue={defaultValue}
+          disabled={disabled}
           maxLength={maxLength}
           onBlur={onBlur}
           onChange={onChange}
@@ -72,6 +86,14 @@ const Input = styled("input", ({ height = 40 }: { height?: number }) => ({
 
     "&::placeholder, &::-webkit-input-placeholder": {
       color: COLORS.i40
+    },
+
+    "&[disabled]": {
+      color: COLORS.i60
+    },
+
+    "&[disabled]:hover": {
+      boxShadow: `${BOX_SHADOW_BORDER}, ${BOX_SHADOW_SITTING}`
     }
   }
 }));
