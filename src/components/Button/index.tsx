@@ -100,7 +100,7 @@ export const DefaultButtonStyle = styled(
   ({ disabled, fullWidth = false, height = 40 }: { disabled: boolean; fullWidth?: boolean; height?: number }) => ({
     backgroundColor: COLORS.white,
     boxShadow: `${BOX_SHADOW_BORDER}, ${BOX_SHADOW_SITTING}`,
-    color: COLORS.i60,
+    color: COLORS.indigo,
     height: `${height}px`,
     lineHeight: `${height}px`,
     padding: "0 12px",
