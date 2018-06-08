@@ -44,6 +44,10 @@ export { Tooltip } from "./components/Tooltip";
 export { WithClassName } from "./components/WithClassName";
 export { WithStyle } from "./components/WithStyle";
 
+// Interfaces
+
+export { SelectOption } from "./components/Select";
+
 // Constants
 export {
   BORDER_RADIUS,

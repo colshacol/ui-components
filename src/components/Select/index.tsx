@@ -38,7 +38,7 @@ export class Select<T = string> extends React.PureComponent<Props<T>> {
       <FlipFlop>
         {({ toggle, active }) => (
           <>
-            <Button height={height} id={this.id} onClick={toggle}>
+            <Button fullWidth height={height} id={this.id} onClick={toggle}>
               <Justify>
                 <Text>{text}</Text>
                 {chevron ? (
