@@ -24,17 +24,11 @@ export class LocationLink extends React.PureComponent<Props> {
     // the presentation prop, making sure to apply the presentation class first.
     const presentationClassName = this.presentationClassName(presentation);
     const combinedClassName = `${presentationClassName} ${className}`;
-    return (
-      <Link.Consumer>
-        {Link => (
-          <Link
-            to={url(location)}
-            className={combinedClassName}
-            target={location.internal ? undefined : location.openInNewTab === true ? "_blank" : "_self"}
-            {...other}
-          />
-        )}
-      </Link.Consumer>
+    const href = url(location);
+    return location.internal ? (
+      <Link.Consumer>{Link => <Link to={href} className={combinedClassName} {...other} />}</Link.Consumer>
+    ) : (
+      <a href={href} className={combinedClassName} target={location.openInNewTab === true ? "_blank" : undefined} {...other} />
     );
   }
 
