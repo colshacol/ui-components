@@ -20,7 +20,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@heydovetail/editorconfig": "^2.0.0",
-    "@heydovetail/tslint-config": "^2.1.0",
+    "@heydovetail/tslint-config": "^2.1.1",
     "@storybook/addon-actions": "^3.4.3",
     "@storybook/addon-storyshots": "^3.4.3",
     "@storybook/addons": "^3.4.3",
