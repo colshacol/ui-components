@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
 import { BOX_SHADOW_FOCUS } from "../../styles";
-import { DISABLED_OPACITY, buttonBaseProperties } from "../Button";
+import { buttonBaseProperties, DISABLED_OPACITY } from "../Button";
 
 export interface Props {
   children?: React.ReactNode;

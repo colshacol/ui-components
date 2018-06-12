@@ -1,6 +1,6 @@
 import * as React from "react";
 import { style, styled } from "typestyle-react";
-import { LocationDescriptor, isLocationDescriptor } from "../../routing";
+import { isLocationDescriptor, LocationDescriptor } from "../../routing";
 import { COLORS } from "../../styles";
 import { Dropdown } from "../Dropdown";
 import IconArrowUpRightMini from "../Icons/IconArrowUpRightMini";
