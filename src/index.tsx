@@ -172,6 +172,7 @@ export { default as IconUser } from "./components/Icons/IconUser";
 export { default as IconUsers } from "./components/Icons/IconUsers";
 export { default as IconVeryNegative } from "./components/Icons/IconVeryNegative";
 export { default as IconVeryPositive } from "./components/Icons/IconVeryPositive";
+export { default as IconWide } from "./components/Icons/IconWide";
 export { default as IconZapier } from "./components/Icons/IconZapier";
 
 // Routing

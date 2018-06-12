@@ -15,10 +15,10 @@ import IconBucket from './IconBucket'
 import IconCalendar from './IconCalendar'
 import IconCheck from './IconCheck'
 import IconCheckAll from './IconCheckAll'
-import IconCheckbox from './IconCheckbox'
 import IconCheckCircle from './IconCheckCircle'
-import IconChecked from './IconChecked'
 import IconCheckMini from './IconCheckMini'
+import IconCheckbox from './IconCheckbox'
+import IconChecked from './IconChecked'
 import IconChevronDown from './IconChevronDown'
 import IconChevronDownMini from './IconChevronDownMini'
 import IconChevronLeft from './IconChevronLeft'
@@ -100,6 +100,7 @@ import IconUser from './IconUser'
 import IconUsers from './IconUsers'
 import IconVeryNegative from './IconVeryNegative'
 import IconVeryPositive from './IconVeryPositive'
+import IconWide from './IconWide'
 import IconZapier from './IconZapier'
 export default {
   IconActivity,
@@ -204,5 +205,6 @@ export default {
   IconUsers,
   IconVeryNegative,
   IconVeryPositive,
+  IconWide,
   IconZapier
 }
