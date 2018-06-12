@@ -7,7 +7,7 @@ import { ThemeGlobalStyles } from "../src/components/ThemeGlobalStyles";
 class StorybookStyles extends React.Component {
   componentDidMount() {
     cssRule("body", {
-      margin: "16px"
+      padding: "16px"
     });
   }
 
