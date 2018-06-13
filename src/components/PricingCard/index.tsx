@@ -1,6 +1,7 @@
 import * as React from "react";
+import { media } from "typestyle";
 import { styled } from "typestyle-react";
-import { BORDER_RADIUS, COLORS } from "../../styles";
+import { BORDER_RADIUS, COLORS, BREAKPOINT_PHABLET } from "../../styles";
 import { Flex } from "../Flex";
 import IconCheckCircle from "../Icons/IconCheckCircle";
 import { Item } from "../Item";
@@ -17,28 +18,24 @@ export class PricingCard extends React.PureComponent<Props> {
 
     return (
       <Wrapper>
-        <Price>
-          <Flex styled={{ gap: 24, layout: "column" }}>
-            <Item style={{ position: "relative" }}>
-              <DollarSign>$</DollarSign>
-              <Amount>{price / 100}</Amount>
-              <Frequency>/ month</Frequency>
-            </Item>
-            <Item>
-              <FinePrint>
-                <Flex styled={{ gap: 8, layout: "column" }}>
-                  <Item>
-                    <SmallText size={14}>Price per team</SmallText>
-                  </Item>
-                  <Item>
-                    <SmallText size={14}>Billed monthly or yearly</SmallText>
-                  </Item>
-                </Flex>
-              </FinePrint>
-            </Item>
-          </Flex>
-        </Price>
-        <Features>
+        <PriceContainer>
+          <Price>
+            <DollarSign>$</DollarSign>
+            <Amount>{price / 100}</Amount>
+            <Frequency>/ month</Frequency>
+          </Price>
+          <FinePrint>
+            <Flex styled={{ gap: 8, layout: "column" }}>
+              <Item>
+                <SmallText size={14}>Price per team</SmallText>
+              </Item>
+              <Item>
+                <SmallText size={14}>Billed monthly or yearly</SmallText>
+              </Item>
+            </Flex>
+          </FinePrint>
+        </PriceContainer>
+        <FeaturesContainer>
           <Flex styled={{ gap: 24, layout: "column" }}>
             {features.map((feature, i) => (
               <Item key={i}>
@@ -51,42 +48,44 @@ export class PricingCard extends React.PureComponent<Props> {
               </Item>
             ))}
           </Flex>
-        </Features>
+        </FeaturesContainer>
       </Wrapper>
     );
   }
 }
 
-const Wrapper = styled("div", {
-  borderRadius: BORDER_RADIUS,
-  display: "flex",
-  flexWrap: "wrap",
-  overflow: "hidden",
-  width: "100%"
+const Wrapper = styled(
+  "div",
+  {
+    borderRadius: BORDER_RADIUS,
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    overflow: "hidden",
+    width: "100%"
+  },
+  media(
+    { maxWidth: BREAKPOINT_PHABLET },
+    {
+      gridTemplateColumns: "1fr"
+    }
+  )
+);
+
+const PriceContainer = styled("div", {
+  backgroundColor: COLORS.p08,
+  fontWeight: 500,
+  padding: "32px"
 });
 
 const Price = styled("div", {
-  alignItems: "center",
-  backgroundColor: COLORS.p08,
-  display: "flex",
-  flex: "1 1 50%",
-  fontWeight: 500,
-  justifyContent: "center",
-  padding: "32px"
-});
-
-const Features = styled("div", {
-  backgroundColor: COLORS.p04,
-  flex: "1 1 50%",
-  overflow: "hidden",
-  padding: "32px"
+  textAlign: "center",
+  position: "relative"
 });
 
 const DollarSign = styled("span", {
   fontSize: "24px",
-  left: "-24px",
   position: "absolute",
-  top: "16px"
+  transform: "translate(-24px, 16px)"
 });
 
 const Amount = styled("span", {
@@ -94,9 +93,17 @@ const Amount = styled("span", {
 });
 
 const Frequency = styled("span", {
-  fontSize: "24px"
+  fontSize: "24px",
+  whiteSpace: "nowrap"
 });
 
-const FinePrint = styled("span", {
+const FinePrint = styled("div", {
+  marginTop: "24px",
   textAlign: "center"
+});
+
+const FeaturesContainer = styled("div", {
+  backgroundColor: COLORS.p04,
+  overflow: "hidden",
+  padding: "32px"
 });
