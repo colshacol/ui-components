@@ -44,7 +44,7 @@ export const buttonBaseProperties: types.NestedCSSProperties = {
   border: "none",
   cursor: "pointer",
   fontSize: "14px",
-  fontWeight: 500,
+  fontWeight: 600,
   margin: 0,
   maxWidth: "100%",
   outline: "none",
