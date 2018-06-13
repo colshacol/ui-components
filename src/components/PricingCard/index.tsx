@@ -1,7 +1,7 @@
 import * as React from "react";
 import { media } from "typestyle";
 import { styled } from "typestyle-react";
-import { BORDER_RADIUS, COLORS, BREAKPOINT_PHABLET } from "../../styles";
+import { BORDER_RADIUS, BREAKPOINT_PHABLET, COLORS } from "../../styles";
 import { Flex } from "../Flex";
 import IconCheckCircle from "../Icons/IconCheckCircle";
 import { Item } from "../Item";
