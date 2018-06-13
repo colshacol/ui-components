@@ -28,6 +28,7 @@ export { OnEsc } from "./components/OnEsc";
 export { OnHover } from "./components/OnHover";
 export { OptionalErrorOverlay } from "./components/OptionalErrorOverlay";
 export { Portal } from "./components/Portal";
+export { PricingCard } from "./components/PricingCard";
 export { ProgressBar } from "./components/ProgressBar";
 export { RxSubscribe } from "./components/RxSubscribe";
 export { Select } from "./components/Select";
