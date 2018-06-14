@@ -35,6 +35,7 @@ export { Select } from "./components/Select";
 export { ShowOnHover } from "./components/ShowOnHover";
 export { SmallText } from "./components/SmallText";
 export { SmartTextInput } from "./components/SmartTextInput";
+export { SmartTextInputWrapping } from "./components/SmartTextInputWrapping";
 export { Stack } from "./components/Stack";
 export { Sticky } from "./components/Sticky";
 export { SubtleButton } from "./components/SubtleButton";
