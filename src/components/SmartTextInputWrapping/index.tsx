@@ -57,7 +57,7 @@ export class SmartTextInputWrapping extends React.PureComponent<Props, State> {
   };
 
   public render() {
-    const { autofocus, disabled, error, height = 40, minRows, placeholder } = this.props;
+    const { autofocus, disabled, error, height = 40, maxLength, minRows, placeholder } = this.props;
     const { value } = this.state;
 
     return (
@@ -66,6 +66,7 @@ export class SmartTextInputWrapping extends React.PureComponent<Props, State> {
           autoFocus={autofocus}
           className={textAreaClassName}
           disabled={disabled}
+          maxLength={maxLength}
           onBlur={this.handleBlur}
           onChange={this.handleOnChange}
           onKeyDown={this.handleKeyDown}

@@ -7,6 +7,7 @@ export interface Props {
   disabled?: boolean;
   error?: string;
   height?: number;
+  maxLength?: number;
   onDismiss?: () => void;
   onSave: (value: string) => void;
   placeholder?: string;
@@ -53,7 +54,7 @@ export class SmartTextInput extends React.PureComponent<Props, State> {
   };
 
   public render() {
-    const { autofocus, disabled, height, error, placeholder } = this.props;
+    const { autofocus, disabled, error, height, maxLength, placeholder } = this.props;
     const { value } = this.state;
 
     return (
@@ -62,6 +63,7 @@ export class SmartTextInput extends React.PureComponent<Props, State> {
         disabled={disabled}
         error={error}
         height={height}
+        maxLength={maxLength}
         onBlur={this.handleBlur}
         onChange={this.handleOnChange}
         onKeyDown={this.handleKeyDown}
