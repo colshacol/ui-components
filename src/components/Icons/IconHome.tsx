@@ -8,17 +8,14 @@ import * as React from "react";
 
 export default createSvg((width = 24, height = 24, color): React.ReactElement<Props> => (
   <svg width={width} height={height} viewBox="0 0 24 24">
-    <g
-      transform="translate(6 6)"
-      strokeWidth={2}
+    <path
+      d="M3 10l9-7 9 7v8c0 2-1 3-3 3H6c-2 0-3-1-3-3v-8z"
       stroke={color}
+      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
       strokeLinecap="round"
       strokeLinejoin="round"
-    >
-      <circle cx={5} cy={5} r={5} />
-      <path d="M12 12L8.533 8.533" />
-    </g>
+    />
   </svg>
 ));
