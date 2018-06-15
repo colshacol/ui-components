@@ -18,4 +18,6 @@ storiesOf(TextInput.name, module)
     </Container>
   ))
   .add("Placeholder", () => <TextInput onChange={action("onChange")} placeholder="First name" />)
-  .add("Value", () => <TextInput value="Bradley Ayers" />);
+  .add("Value", () => <TextInput value="Bradley Ayers" />)
+  .add("Facade (select)", () => <TextInput value="Bradley Ayers" facade="select" />)
+  .add("Facade (disabled, select)", () => <TextInput value="Bradley Ayers" disabled facade="select" />);

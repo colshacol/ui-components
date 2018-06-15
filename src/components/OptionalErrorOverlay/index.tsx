@@ -21,8 +21,8 @@ export class OptionalErrorOverlay extends React.PureComponent<Props> {
 }
 
 const Container = styled("span", {
-  display: "block" as "block",
-  position: "relative" as "relative"
+  display: "block",
+  position: "relative"
 });
 
 const Error = styled("span", {
