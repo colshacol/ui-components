@@ -3,11 +3,21 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { Dropdown } from "../";
 import { DropdownItem, DropdownSeparator, DropdownText } from "../../..";
+import { COLORS } from "../../../styles";
 
 storiesOf(Dropdown.name, module)
   .add("Default", () => (
     <div style={{ display: "flex" }}>
       <Dropdown>
+        <DropdownItem action={action("onClick")} value="Save now" />
+        <DropdownItem action={action("onClick")} value="Share" />
+        <DropdownItem action={action("onClick")} value="Delete" />
+      </Dropdown>
+    </div>
+  ))
+  .add("Color", () => (
+    <div style={{ display: "flex" }}>
+      <Dropdown color={COLORS.blue}>
         <DropdownItem action={action("onClick")} value="Save now" />
         <DropdownItem action={action("onClick")} value="Share" />
         <DropdownItem action={action("onClick")} value="Delete" />
