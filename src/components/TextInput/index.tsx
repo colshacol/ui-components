@@ -16,9 +16,11 @@ export interface Props {
   disabled?: boolean;
   error?: string;
   height?: number;
+  id?: string;
   maxLength?: number;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
   placeholder?: string;
   value?: string;
@@ -32,8 +34,10 @@ export class TextInput extends React.PureComponent<Props> {
       disabled,
       error,
       height,
+      id,
       maxLength,
       onBlur,
+      onFocus,
       onChange,
       onKeyDown,
       placeholder,
@@ -45,8 +49,10 @@ export class TextInput extends React.PureComponent<Props> {
           autoFocus={autofocus}
           defaultValue={defaultValue}
           disabled={disabled}
+          id={id}
           maxLength={maxLength}
           onBlur={onBlur}
+          onFocus={onFocus}
           onChange={onChange}
           onKeyDown={onKeyDown}
           placeholder={placeholder}
