@@ -17,7 +17,9 @@ storiesOf(Dropdown.name, module)
   ))
   .add("Color", () => (
     <div style={{ display: "flex" }}>
-      <Dropdown color={COLORS.blue}>
+      <Dropdown color={COLORS.orange}>
+        <DropdownText lines={["Created", "2017-01-01"]} />
+        <DropdownSeparator />
         <DropdownItem action={action("onClick")} value="Save now" />
         <DropdownItem action={action("onClick")} value="Share" />
         <DropdownItem action={action("onClick")} value="Delete" />

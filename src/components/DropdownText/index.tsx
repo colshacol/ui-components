@@ -1,5 +1,6 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
+import { Dropdown } from "../Dropdown";
 import { SmallText } from "../SmallText";
 
 const Container = styled("div", {
@@ -19,8 +20,14 @@ const Line = styled("div", {
 
 export function DropdownText({ lines }: { lines: string[] }) {
   return (
-    <Container>
-      <SmallText>{lines.map((line, i) => <Line key={i}>{line}</Line>)}</SmallText>
-    </Container>
+    <Dropdown.Context.Consumer>
+      {({ color }) => (
+        <Container>
+          <SmallText shade={color === undefined ? "dark" : "light"}>
+            {lines.map((line, i) => <Line key={i}>{line}</Line>)}
+          </SmallText>
+        </Container>
+      )}
+    </Dropdown.Context.Consumer>
   );
 }

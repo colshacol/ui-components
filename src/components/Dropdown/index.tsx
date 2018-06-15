@@ -28,7 +28,7 @@ export class Dropdown extends React.PureComponent<Props> {
     const overflow = maxHeight !== undefined;
 
     return (
-      <Dropdown.Context.Provider value={{ onLeafClick }}>
+      <Dropdown.Context.Provider value={{ color, onLeafClick }}>
         <AnimateSlideDown>
           <Container
             style={{ maxWidth, maxHeight }}
@@ -46,15 +46,14 @@ export class Dropdown extends React.PureComponent<Props> {
     );
   }
 
-  public static Context = React.createContext<Pick<Props, "onLeafClick">>({});
+  public static Context = React.createContext<Pick<Props, "color" | "onLeafClick">>({});
 }
 
 const Container = styled("div", ({ color, overflow }: { color?: string; overflow: boolean }) => ({
-  backgroundColor: color !== undefined ? color : COLORS.white,
+  backgroundColor: color === undefined ? COLORS.white : color,
   border: "none",
   borderRadius: BORDER_RADIUS,
-  boxShadow: color !== undefined ? BOX_SHADOW_LIFTED : `${BOX_SHADOW_BORDER}, ${BOX_SHADOW_LIFTED}`,
-  color: color !== undefined ? COLORS.white : undefined,
+  boxShadow: color === undefined ? `${BOX_SHADOW_BORDER}, ${BOX_SHADOW_LIFTED}` : BOX_SHADOW_LIFTED,
   display: "block",
   fontSize: "14px",
   lineHeight: "24px",

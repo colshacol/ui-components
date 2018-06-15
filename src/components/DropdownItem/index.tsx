@@ -1,7 +1,7 @@
 import * as React from "react";
 import { style, styled } from "typestyle-react";
 import { isLocationDescriptor, LocationDescriptor } from "../../routing";
-import { COLORS } from "../../styles";
+import { COLORS, purpleRgb } from "../../styles";
 import { Dropdown } from "../Dropdown";
 import IconArrowUpRightMini from "../Icons/IconArrowUpRightMini";
 import { LocationLink } from "../LocationLink";
@@ -21,19 +21,30 @@ export interface Props {
   // If true, displays IconArrowUpRight to the right of the item
   // Usually used to indicate clicking will open a new tab
   arrow?: boolean;
-  disabled?: boolean;
-  icon?: React.ReactNode;
-  value?: React.ReactNode;
-  wrap?: boolean;
-  children?: undefined;
   // If true, does not trigger the parent dropdown's `onLeafClick` handler on
   // click.
   branch?: boolean;
+  children?: undefined;
+  disabled?: boolean;
+  height?: number;
+  icon?: React.ReactNode;
+  value?: React.ReactNode;
+  wrap?: boolean;
 }
 
 export class DropdownItem extends React.PureComponent<Props> {
   public render() {
-    const { action, active = false, arrow = false, disabled = false, icon, branch = false, value, wrap = false } = this.props;
+    const {
+      action,
+      active = false,
+      arrow = false,
+      disabled = false,
+      height = 32,
+      icon,
+      branch = false,
+      value,
+      wrap = false
+    } = this.props;
     const buttonIcon = icon != null ? <IconContainer>{icon}</IconContainer> : null;
     const arrowIcon = arrow ? (
       <ArrowContainer>
@@ -41,18 +52,17 @@ export class DropdownItem extends React.PureComponent<Props> {
       </ArrowContainer>
     ) : null;
 
-    const button = (
-      <Button styled={{ active, disabled }}>
-        {buttonIcon}
-        <Content styled={{ wrap }}>{value}</Content>
-        {arrowIcon}
-      </Button>
-    );
-
     return (
       <Dropdown.Context.Consumer>
-        {({ onLeafClick }) =>
-          disabled ? (
+        {({ color, onLeafClick }) => {
+          const button = (
+            <Button styled={{ active, color, disabled, height }}>
+              {buttonIcon}
+              <Content styled={{ wrap }}>{value}</Content>
+              {arrowIcon}
+            </Button>
+          );
+          return disabled ? (
             <span>{button}</span>
           ) : isLocationDescriptor(action) ? (
             <LocationLink
@@ -75,15 +85,12 @@ export class DropdownItem extends React.PureComponent<Props> {
             >
               {button}
             </span>
-          )
-        }
+          );
+        }}
       </Dropdown.Context.Consumer>
     );
   }
 }
-
-const activeBackgroundColor = COLORS.p08;
-const hoverBackgroundColor = COLORS.p04;
 
 class IconContainer extends React.Component<JSX.IntrinsicElements["span"]> {
   static class = "__icon_container_component";
@@ -128,40 +135,52 @@ const linkClassName = style({
   textDecoration: "none"
 });
 
-const Button = styled("button", ({ active, disabled }: { active: boolean; disabled: boolean }) => ({
-  alignItems: "center",
-  color: active ? COLORS.purple : "inherit",
-  background: active ? activeBackgroundColor : "transparent",
-  border: "none",
-  cursor: "pointer",
-  display: "flex",
-  fontWeight: 500,
-  fontSize: "14px",
-  padding: "8px 24px",
-  pointerEvents: disabled ? "none" : "all",
-  outline: "none",
-  opacity: disabled ? 0.5 : 1,
-  textAlign: "left",
-  textDecoration: "none",
-  width: "100%",
+const activeBackgroundColor = `rgba(${purpleRgb}, 0.08)`;
+const hoverBackgroundColor = `rgba(${purpleRgb}, 0.04)`;
 
-  $nest: {
-    "&:hover": {
-      backgroundColor: active ? activeBackgroundColor : hoverBackgroundColor,
-      color: COLORS.purple,
+const Button = styled(
+  "button",
+  ({ active, color, disabled, height }: { active: boolean; color?: string; disabled: boolean; height: number }) => {
+    const textColor = color === undefined ? COLORS.indigo : "rgba(255, 255, 255, 0.8)";
+    const activeTextColor = color === undefined ? COLORS.purple : COLORS.white;
+
+    return {
+      alignItems: "center",
+      color: active ? activeTextColor : textColor,
+      background: active ? activeBackgroundColor : "transparent",
+      border: "none",
+      cursor: "pointer",
+      display: "flex",
+      fontWeight: 500,
+      fontSize: "14px",
+      lineHeight: "24px",
+      padding: `${(height - 24) / 2}px 24px`,
+      pointerEvents: disabled ? "none" : "all",
+      outline: "none",
+      opacity: disabled ? 0.5 : 1,
+      textAlign: "left",
+      textDecoration: "none",
+      width: "100%",
 
       $nest: {
-        [`& > .${IconContainer.class}`]: {
-          color: COLORS.purple
+        "&:hover": {
+          backgroundColor: active ? activeBackgroundColor : hoverBackgroundColor,
+          color: activeTextColor,
+
+          $nest: {
+            [`& > .${IconContainer.class}`]: {
+              color: activeTextColor
+            },
+            [`& > .${ArrowContainer.class}`]: {
+              opacity: 1
+            }
+          }
         },
-        [`& > .${ArrowContainer.class}`]: {
-          opacity: 1
+        "&:focus": {
+          backgroundColor: activeBackgroundColor,
+          color: activeTextColor
         }
       }
-    },
-    "&:focus": {
-      backgroundColor: activeBackgroundColor,
-      color: COLORS.purple
-    }
+    };
   }
-}));
+);

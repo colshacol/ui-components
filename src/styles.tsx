@@ -132,8 +132,11 @@ export const COLORS = {
 // Border radius for rounded rectangles
 export const BORDER_RADIUS = "4px";
 
-// ‘Indigo’ as an rgb value
+// Indigo as an rgb value
 export const indigoRgb = "36, 18, 77";
+
+// Purple as an rgb value
+export const purpleRgb = "81, 45, 168";
 
 // Depth level 1 (sitting on background)
 export const BOX_SHADOW_BORDER_LIGHTER = `0 0 0 1px rgba(${indigoRgb}, .05)`;
