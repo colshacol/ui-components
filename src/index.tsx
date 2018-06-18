@@ -24,6 +24,7 @@ export { Layer } from "./components/Layer";
 export { Link } from "./components/Link";
 export { LocationLink } from "./components/LocationLink";
 export { MeatballMenu } from "./components/MeatballMenu";
+export { Menu } from "./components/Menu";
 export { OnEsc } from "./components/OnEsc";
 export { OnHover } from "./components/OnHover";
 export { OptionalErrorOverlay } from "./components/OptionalErrorOverlay";
