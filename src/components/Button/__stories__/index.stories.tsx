@@ -6,11 +6,43 @@ import { COLORS, Flow, IconArrowRightMini, IconArrowUpRight, Item } from "../../
 import { Container } from "../../../util/stories";
 
 storiesOf(Button.name, module)
-  .add("Default", () => <Button onClick={action("onClick")}>Button</Button>)
+  .add("Default", () => (
+    <>
+      <p>
+        <small>Normal</small>
+      </p>
+      <p>
+        <Button onClick={action("onClick")}>Button</Button>
+      </p>
+      <p>
+        <small>Active</small>
+      </p>
+      <p>
+        <Button active onClick={action("onClick")}>
+          Button
+        </Button>
+      </p>
+    </>
+  ))
   .add("Color", () => (
-    <Button color={COLORS.purple} onClick={action("onClick")}>
-      Button
-    </Button>
+    <>
+      <p>
+        <small>Normal</small>
+      </p>
+      <p>
+        <Button color={COLORS.purple} onClick={action("onClick")}>
+          Button
+        </Button>
+      </p>
+      <p>
+        <small>Active</small>
+      </p>
+      <p>
+        <Button active color={COLORS.purple} onClick={action("onClick")}>
+          Button
+        </Button>
+      </p>
+    </>
   ))
   .add("Custom height", () => (
     <Button height={24} onClick={action("onClick")}>

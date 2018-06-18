@@ -1,3 +1,4 @@
+import * as csx from "csx";
 import * as React from "react";
 import { types } from "typestyle";
 import { styled } from "typestyle-react";
@@ -11,6 +12,10 @@ import {
 } from "../../styles";
 
 export interface Props {
+  /**
+   * If `true`, the button will render is a "pressed" state.
+   */
+  active?: boolean;
   children?: React.ReactNode;
   color?: string;
   disabled?: boolean;
@@ -22,15 +27,15 @@ export interface Props {
 
 export class Button extends React.PureComponent<Props> {
   public render() {
-    const { children, color, disabled = false, fullWidth, height, id, onClick } = this.props;
+    const { active, children, color, disabled = false, fullWidth, height, id, onClick } = this.props;
     const inner = { id: id, onClick: onClick, tabIndex: disabled ? -1 : 0, type: "button" };
 
     return color !== undefined ? (
-      <ColoredButtonStyle styled={{ color, disabled, fullWidth, height }} {...inner}>
+      <ColoredButtonStyle styled={{ active, color, disabled, fullWidth, height }} {...inner}>
         {children}
       </ColoredButtonStyle>
     ) : (
-      <DefaultButtonStyle styled={{ disabled, fullWidth, height }} {...inner}>
+      <DefaultButtonStyle styled={{ active, disabled, fullWidth, height }} {...inner}>
         {children}
       </DefaultButtonStyle>
     );
@@ -59,65 +64,105 @@ export const ColoredButtonStyle = styled(
   "button",
   buttonBaseProperties,
   ({
+    active = false,
     color,
     disabled,
     fullWidth = false,
     height = 40
   }: {
+    active?: boolean;
     color: string;
     disabled: boolean;
     fullWidth?: boolean;
     height?: number;
-  }) => ({
-    backgroundColor: color,
-    boxShadow: BOX_SHADOW_SITTING,
-    color: COLORS.white,
-    height: `${height}px`,
-    lineHeight: `${height}px`,
-    padding: "0 12px",
-    pointerEvents: disabled ? "none" : undefined,
-    opacity: disabled ? DISABLED_OPACITY : undefined,
-    width: fullWidth ? "100%" : "auto",
+  }) => {
+    const activeProperties: types.CSSProperties = {
+      backgroundColor: csx
+        .color(color)
+        .darken(0.02)
+        .toString(),
+      opacity: disabled ? DISABLED_OPACITY : 1
+    };
 
+    return {
+      backgroundColor: color,
+      boxShadow: BOX_SHADOW_SITTING,
+      color: COLORS.white,
+      height: `${height}px`,
+      lineHeight: `${height}px`,
+      padding: "0 12px",
+      pointerEvents: disabled ? "none" : undefined,
+      opacity: disabled ? DISABLED_OPACITY : undefined,
+      width: fullWidth ? "100%" : "auto",
+
+      ...(active
+        ? activeProperties
+        : {
+            $nest: {
+              "&:hover": {
+                opacity: disabled ? DISABLED_OPACITY : 0.95
+              },
+              "&:active": activeProperties
+            }
+          })
+    };
+  },
+  {
     $nest: {
-      "&:hover": {
-        boxShadow: BOX_SHADOW_SITTING,
-        opacity: disabled ? DISABLED_OPACITY : 0.95
-      },
-      "&:active": {
-        opacity: disabled ? DISABLED_OPACITY : 1
-      },
       "&:focus": {
         boxShadow: BOX_SHADOW_FOCUS
       }
     }
-  })
+  }
 );
 
 export const DefaultButtonStyle = styled(
   "button",
   buttonBaseProperties,
-  ({ disabled, fullWidth = false, height = 40 }: { disabled: boolean; fullWidth?: boolean; height?: number }) => ({
-    backgroundColor: COLORS.white,
-    boxShadow: `${BOX_SHADOW_BORDER}, ${BOX_SHADOW_SITTING}`,
-    color: disabled ? COLORS.i60 : COLORS.indigo,
-    height: `${height}px`,
-    lineHeight: `${height}px`,
-    padding: "0 12px",
-    pointerEvents: disabled ? "none" : undefined,
-    width: fullWidth ? "100%" : "auto",
+  ({
+    active = false,
+    disabled,
+    fullWidth = false,
+    height = 40
+  }: {
+    active?: boolean;
+    disabled: boolean;
+    fullWidth?: boolean;
+    height?: number;
+  }) => {
+    const activeProperties: types.CSSProperties = {
+      backgroundColor: COLORS.i02,
+      opacity: disabled ? DISABLED_OPACITY : 1
+    };
 
+    return {
+      backgroundColor: COLORS.white,
+      boxShadow: `${BOX_SHADOW_BORDER}, ${BOX_SHADOW_SITTING}`,
+      color: disabled ? COLORS.i60 : COLORS.indigo,
+      height: `${height}px`,
+      lineHeight: `${height}px`,
+      padding: "0 12px",
+      pointerEvents: disabled ? "none" : undefined,
+      width: fullWidth ? "100%" : "auto",
+
+      ...(active
+        ? activeProperties
+        : {
+            $nest: {
+              "&:hover": {
+                boxShadow: `${BOX_SHADOW_BORDER_DARKER}, ${BOX_SHADOW_SITTING}`,
+                color: COLORS.indigo
+              },
+              "&:active": activeProperties
+            }
+          })
+    };
+  },
+  {
     $nest: {
-      "&:hover": {
-        boxShadow: `${BOX_SHADOW_BORDER_DARKER}, ${BOX_SHADOW_SITTING}`,
-        color: COLORS.indigo
-      },
-      "&:active": {
-        backgroundColor: COLORS.i02
-      },
       "&:focus": {
         boxShadow: `${BOX_SHADOW_BORDER}, ${BOX_SHADOW_FOCUS}`
       }
     }
-  })
+  }
 );
