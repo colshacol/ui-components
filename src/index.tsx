@@ -43,6 +43,7 @@ export { SubtleButtonLink } from "./components/SubtleButtonLink";
 export { TextInput } from "./components/TextInput";
 export { ThemeGlobalStyles } from "./components/ThemeGlobalStyles";
 export { Tooltip } from "./components/Tooltip";
+export { Uid } from "./components/Uid";
 export { WithClassName } from "./components/WithClassName";
 export { WithStyle } from "./components/WithStyle";
 
