@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
-import { BORDER_RADIUS, BOX_SHADOW_FOCUS, COLORS } from "../../styles";
+import { BORDER_RADIUS, BOX_SHADOW_FOCUS, COLORS, indigoRgb } from "../../styles";
 import IconCheckMini from "../Icons/IconCheckMini";
 import IconMinus from "../Icons/IconMinus";
 
@@ -17,7 +17,7 @@ export class Color extends React.PureComponent<Props> {
     return (
       <ColoredButton onClick={onClick} styled={{ color }}>
         {selected ? <IconCheckMini /> : null}
-        {strikethrough ? <IconMinus color="#C4C2CB" /> : null}
+        {strikethrough ? <IconMinus color={`rgba(${indigoRgb}, 0.4)`} /> : null}
       </ColoredButton>
     );
   }
@@ -43,8 +43,8 @@ const ColoredButton = styled("button", (props: { color: string }) => ({
   border: "none",
   color: COLORS.white,
   display: "flex",
-  height: "32px",
+  height: "24px",
   justifyContent: "center",
   outline: "none",
-  width: "32px"
+  width: "24px"
 }));

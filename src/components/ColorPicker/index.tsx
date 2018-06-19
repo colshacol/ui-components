@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled } from "typestyle-react";
-import { COLORS, SmartTextInput, SubtleButton } from "../..";
+import { COLORS, SmartTextInput } from "../..";
 import { Color } from "../Color";
 import { Flex } from "../Flex";
 import { FlexWrap } from "../FlexWrap";
@@ -13,6 +13,7 @@ export interface Props {
   colors: string[];
   onSelect: (color: string | null) => void;
   selected: string | null;
+  width?: number;
 }
 
 export interface State {
@@ -26,11 +27,11 @@ export class ColorPicker extends React.PureComponent<Props, State> {
   };
 
   public render() {
-    const { allowCustom = true, colors } = this.props;
+    const { allowCustom = true, colors, width = 152 } = this.props;
     const { error, selected } = this.state;
 
     return (
-      <Container>
+      <Container styled={{ width }}>
         <Flex styled={{ gap: 8, layout: "column" }}>
           <Item>
             <FlexWrap styled={{ gap: 8 }}>
@@ -48,6 +49,15 @@ export class ColorPicker extends React.PureComponent<Props, State> {
                   </Item>
                 );
               })}
+              <Item>
+                <Color
+                  color={COLORS.i08}
+                  strikethrough
+                  onClick={() => {
+                    this.selectColor(null);
+                  }}
+                />
+              </Item>
             </FlexWrap>
           </Item>
           {allowCustom ? (
@@ -63,17 +73,6 @@ export class ColorPicker extends React.PureComponent<Props, State> {
               />
             </Item>
           ) : null}
-          <Item>
-            <SubtleButton
-              color={COLORS.i60}
-              fullWidth
-              onClick={() => {
-                this.selectColor(null);
-              }}
-            >
-              Reset
-            </SubtleButton>
-          </Item>
         </Flex>
       </Container>
     );
@@ -93,6 +92,6 @@ export class ColorPicker extends React.PureComponent<Props, State> {
   };
 }
 
-const Container = styled("div", {
-  width: "112px"
-});
+const Container = styled("div", ({ width }: { width: number }) => ({
+  width
+}));
