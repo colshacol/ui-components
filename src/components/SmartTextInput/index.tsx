@@ -59,7 +59,7 @@ export class SmartTextInput extends React.PureComponent<Props, State> {
 
     return (
       <TextInput
-        autofocus={autofocus}
+        autoFocus={autofocus}
         disabled={disabled}
         error={error}
         height={height}

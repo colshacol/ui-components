@@ -82,6 +82,9 @@ export class TextInput extends React.PureComponent<Props> {
                   if (onFocus !== undefined) {
                     onFocus(e);
                   }
+                  if (autoFocus === true) {
+                    e.target.select();
+                  }
                 }}
                 onChange={onChange}
                 onKeyDown={onKeyDown}

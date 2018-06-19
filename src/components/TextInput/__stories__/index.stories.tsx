@@ -5,6 +5,7 @@ import { TextInput } from "../";
 import { Container } from "../../../util/stories";
 
 storiesOf(TextInput.name, module)
+  .add("Autofocus", () => <TextInput autoFocus value="Bradley Ayers" />)
   .add("Custom height", () => <TextInput height={32} value="Bradley Ayers" />)
   .add("Disabled", () => <TextInput disabled value="Bradley Ayers" />)
   .add("Empty", () => <TextInput />)
